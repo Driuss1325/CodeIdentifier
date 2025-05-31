@@ -9,7 +9,7 @@ from cplusplus.parser import run_cpp_tests
 from javascript.parser import run_js_tests
 from pascal.parser import run_pascal_tests
 from python.main import run_python_tests
-from sql.parser import run_sql_tests
+from tsql.parser import run_sql_tests
 
 class Application(tk.Tk):
     def __init__(self):
@@ -89,19 +89,19 @@ class Application(tk.Tk):
     def abrir_nueva_ventana(self):
         new_window = tk.Toplevel(self)
         new_window.title("Analizar texto")
-        new_window.configure(bg='black')
+        new_window.configure(bg='#03A062')
         new_window.geometry("600x400")
 
-        container = tk.Frame(new_window, bg='black')
+        container = tk.Frame(new_window, bg='#03A062')
         container.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
 
-        text_area = tk.Text(container, wrap=tk.WORD, font=('Courier New', 12), background='black', foreground='white', borderwidth=2, relief="solid")
+        text_area = tk.Text(container, wrap=tk.WORD, font=('Courier New', 12), background='#03A062', foreground='black', borderwidth=2, relief="solid")
         text_area.grid(row=0, column=0, sticky="nsew")
 
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
 
-        button_frame = tk.Frame(container, bg='black')
+        button_frame = tk.Frame(container, bg='#03A062')
         button_frame.grid(row=1, column=0, sticky="ew")
 
         analyze_button = ttk.Button(button_frame, text="Analizar", command=lambda: self.analizar_texto(text_area.get("1.0", tk.END)), style='TButton')
@@ -157,10 +157,10 @@ class Application(tk.Tk):
     def mostrar_resultados(self, lenguaje, resultado):
         result_window = tk.Toplevel(self)
         result_window.title(f"Resultados de Análisis - {lenguaje}")
-        result_window.configure(bg='black')
+        result_window.configure(bg='#03A062')
         result_window.geometry("700x400")
 
-        text_area = tkScrolledText.ScrolledText(result_window, wrap=tk.WORD, font=('Courier New', 12), background='black', foreground='green')
+        text_area = tkScrolledText.ScrolledText(result_window, wrap=tk.WORD, font=('Courier New', 12), background='#03A062', foreground='black')
         text_area.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
         text_area.insert(tk.END, resultado)
         text_area.config(state='disabled')
