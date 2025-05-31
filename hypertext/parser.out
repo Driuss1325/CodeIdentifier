@@ -1,0 +1,880 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> html
+Rule 1     html -> elements
+Rule 2     elements -> elements element
+Rule 3     elements -> element
+Rule 4     element -> text
+Rule 5     element -> comment
+Rule 6     element -> conditional_comment
+Rule 7     element -> xml
+Rule 8     element -> cdata
+Rule 9     element -> dtd
+Rule 10    element -> script
+Rule 11    element -> style
+Rule 12    element -> tag
+Rule 13    text -> HTML_TEXT
+Rule 14    comment -> HTML_COMMENT
+Rule 15    conditional_comment -> HTML_CONDITIONAL_COMMENT
+Rule 16    xml -> XML
+Rule 17    cdata -> CDATA
+Rule 18    dtd -> DTD
+Rule 19    element -> SCRIPTLET
+Rule 20    element -> SEA_WS
+Rule 21    script -> SCRIPT_OPEN script_body SCRIPT_CLOSE
+Rule 22    script_body -> SCRIPT_BODY
+Rule 23    SCRIPT_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE
+Rule 24    style -> STYLE_OPEN style_body STYLE_CLOSE
+Rule 25    style_body -> STYLE_BODY
+Rule 26    STYLE_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE
+Rule 27    tag -> TAG_OPEN tag_name tag_attributes TAG_CLOSE
+Rule 28    tag -> TAG_OPEN tag_name tag_attributes TAG_SLASH_CLOSE
+Rule 29    tag -> TAG_OPEN TAG_SLASH tag_name TAG_CLOSE
+Rule 30    tag_name -> TAG_NAME
+Rule 31    tag_attributes -> tag_attributes tag_attribute
+Rule 32    tag_attributes -> empty
+Rule 33    tag_attribute -> TAG_NAME TAG_EQUALS attribute_value
+Rule 34    attribute_value -> ATTVALUE_VALUE
+Rule 35    tag_close -> TAG_CLOSE
+Rule 36    tag_close -> TAG_SLASH_CLOSE
+Rule 37    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ATTVALUE_VALUE       : 34
+CDATA                : 17
+DTD                  : 18
+HTML_COMMENT         : 14
+HTML_CONDITIONAL_COMMENT : 15
+HTML_TEXT            : 13
+SCRIPTLET            : 19
+SCRIPT_BODY          : 22
+SCRIPT_OPEN          : 21
+SEA_WS               : 20
+STYLE_BODY           : 25
+STYLE_OPEN           : 24
+TAG_CLOSE            : 23 26 27 29 35
+TAG_EQUALS           : 33
+TAG_NAME             : 23 26 30 33
+TAG_OPEN             : 23 26 27 28 29
+TAG_SLASH            : 23 26 29
+TAG_SLASH_CLOSE      : 28 36
+XML                  : 16
+error                : 
+
+Nonterminals, with rules where they appear
+
+SCRIPT_CLOSE         : 21
+STYLE_CLOSE          : 24
+attribute_value      : 33
+cdata                : 8
+comment              : 5
+conditional_comment  : 6
+dtd                  : 9
+element              : 2 3
+elements             : 1 2
+empty                : 32
+html                 : 0
+script               : 10
+script_body          : 21
+style                : 11
+style_body           : 24
+tag                  : 12
+tag_attribute        : 31
+tag_attributes       : 27 28 31
+tag_close            : 
+tag_name             : 27 28 29
+text                 : 4
+xml                  : 7
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . html
+    (1) html -> . elements
+    (2) elements -> . elements element
+    (3) elements -> . element
+    (4) element -> . text
+    (5) element -> . comment
+    (6) element -> . conditional_comment
+    (7) element -> . xml
+    (8) element -> . cdata
+    (9) element -> . dtd
+    (10) element -> . script
+    (11) element -> . style
+    (12) element -> . tag
+    (19) element -> . SCRIPTLET
+    (20) element -> . SEA_WS
+    (13) text -> . HTML_TEXT
+    (14) comment -> . HTML_COMMENT
+    (15) conditional_comment -> . HTML_CONDITIONAL_COMMENT
+    (16) xml -> . XML
+    (17) cdata -> . CDATA
+    (18) dtd -> . DTD
+    (21) script -> . SCRIPT_OPEN script_body SCRIPT_CLOSE
+    (24) style -> . STYLE_OPEN style_body STYLE_CLOSE
+    (27) tag -> . TAG_OPEN tag_name tag_attributes TAG_CLOSE
+    (28) tag -> . TAG_OPEN tag_name tag_attributes TAG_SLASH_CLOSE
+    (29) tag -> . TAG_OPEN TAG_SLASH tag_name TAG_CLOSE
+
+    SCRIPTLET       shift and go to state 13
+    SEA_WS          shift and go to state 14
+    HTML_TEXT       shift and go to state 15
+    HTML_COMMENT    shift and go to state 16
+    HTML_CONDITIONAL_COMMENT shift and go to state 17
+    XML             shift and go to state 18
+    CDATA           shift and go to state 19
+    DTD             shift and go to state 20
+    SCRIPT_OPEN     shift and go to state 21
+    STYLE_OPEN      shift and go to state 22
+    TAG_OPEN        shift and go to state 23
+
+    html                           shift and go to state 1
+    elements                       shift and go to state 2
+    element                        shift and go to state 3
+    text                           shift and go to state 4
+    comment                        shift and go to state 5
+    conditional_comment            shift and go to state 6
+    xml                            shift and go to state 7
+    cdata                          shift and go to state 8
+    dtd                            shift and go to state 9
+    script                         shift and go to state 10
+    style                          shift and go to state 11
+    tag                            shift and go to state 12
+
+state 1
+
+    (0) S' -> html .
+
+
+
+state 2
+
+    (1) html -> elements .
+    (2) elements -> elements . element
+    (4) element -> . text
+    (5) element -> . comment
+    (6) element -> . conditional_comment
+    (7) element -> . xml
+    (8) element -> . cdata
+    (9) element -> . dtd
+    (10) element -> . script
+    (11) element -> . style
+    (12) element -> . tag
+    (19) element -> . SCRIPTLET
+    (20) element -> . SEA_WS
+    (13) text -> . HTML_TEXT
+    (14) comment -> . HTML_COMMENT
+    (15) conditional_comment -> . HTML_CONDITIONAL_COMMENT
+    (16) xml -> . XML
+    (17) cdata -> . CDATA
+    (18) dtd -> . DTD
+    (21) script -> . SCRIPT_OPEN script_body SCRIPT_CLOSE
+    (24) style -> . STYLE_OPEN style_body STYLE_CLOSE
+    (27) tag -> . TAG_OPEN tag_name tag_attributes TAG_CLOSE
+    (28) tag -> . TAG_OPEN tag_name tag_attributes TAG_SLASH_CLOSE
+    (29) tag -> . TAG_OPEN TAG_SLASH tag_name TAG_CLOSE
+
+    $end            reduce using rule 1 (html -> elements .)
+    SCRIPTLET       shift and go to state 13
+    SEA_WS          shift and go to state 14
+    HTML_TEXT       shift and go to state 15
+    HTML_COMMENT    shift and go to state 16
+    HTML_CONDITIONAL_COMMENT shift and go to state 17
+    XML             shift and go to state 18
+    CDATA           shift and go to state 19
+    DTD             shift and go to state 20
+    SCRIPT_OPEN     shift and go to state 21
+    STYLE_OPEN      shift and go to state 22
+    TAG_OPEN        shift and go to state 23
+
+    element                        shift and go to state 24
+    text                           shift and go to state 4
+    comment                        shift and go to state 5
+    conditional_comment            shift and go to state 6
+    xml                            shift and go to state 7
+    cdata                          shift and go to state 8
+    dtd                            shift and go to state 9
+    script                         shift and go to state 10
+    style                          shift and go to state 11
+    tag                            shift and go to state 12
+
+state 3
+
+    (3) elements -> element .
+
+    SCRIPTLET       reduce using rule 3 (elements -> element .)
+    SEA_WS          reduce using rule 3 (elements -> element .)
+    HTML_TEXT       reduce using rule 3 (elements -> element .)
+    HTML_COMMENT    reduce using rule 3 (elements -> element .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 3 (elements -> element .)
+    XML             reduce using rule 3 (elements -> element .)
+    CDATA           reduce using rule 3 (elements -> element .)
+    DTD             reduce using rule 3 (elements -> element .)
+    SCRIPT_OPEN     reduce using rule 3 (elements -> element .)
+    STYLE_OPEN      reduce using rule 3 (elements -> element .)
+    TAG_OPEN        reduce using rule 3 (elements -> element .)
+    $end            reduce using rule 3 (elements -> element .)
+
+
+state 4
+
+    (4) element -> text .
+
+    SCRIPTLET       reduce using rule 4 (element -> text .)
+    SEA_WS          reduce using rule 4 (element -> text .)
+    HTML_TEXT       reduce using rule 4 (element -> text .)
+    HTML_COMMENT    reduce using rule 4 (element -> text .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 4 (element -> text .)
+    XML             reduce using rule 4 (element -> text .)
+    CDATA           reduce using rule 4 (element -> text .)
+    DTD             reduce using rule 4 (element -> text .)
+    SCRIPT_OPEN     reduce using rule 4 (element -> text .)
+    STYLE_OPEN      reduce using rule 4 (element -> text .)
+    TAG_OPEN        reduce using rule 4 (element -> text .)
+    $end            reduce using rule 4 (element -> text .)
+
+
+state 5
+
+    (5) element -> comment .
+
+    SCRIPTLET       reduce using rule 5 (element -> comment .)
+    SEA_WS          reduce using rule 5 (element -> comment .)
+    HTML_TEXT       reduce using rule 5 (element -> comment .)
+    HTML_COMMENT    reduce using rule 5 (element -> comment .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 5 (element -> comment .)
+    XML             reduce using rule 5 (element -> comment .)
+    CDATA           reduce using rule 5 (element -> comment .)
+    DTD             reduce using rule 5 (element -> comment .)
+    SCRIPT_OPEN     reduce using rule 5 (element -> comment .)
+    STYLE_OPEN      reduce using rule 5 (element -> comment .)
+    TAG_OPEN        reduce using rule 5 (element -> comment .)
+    $end            reduce using rule 5 (element -> comment .)
+
+
+state 6
+
+    (6) element -> conditional_comment .
+
+    SCRIPTLET       reduce using rule 6 (element -> conditional_comment .)
+    SEA_WS          reduce using rule 6 (element -> conditional_comment .)
+    HTML_TEXT       reduce using rule 6 (element -> conditional_comment .)
+    HTML_COMMENT    reduce using rule 6 (element -> conditional_comment .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 6 (element -> conditional_comment .)
+    XML             reduce using rule 6 (element -> conditional_comment .)
+    CDATA           reduce using rule 6 (element -> conditional_comment .)
+    DTD             reduce using rule 6 (element -> conditional_comment .)
+    SCRIPT_OPEN     reduce using rule 6 (element -> conditional_comment .)
+    STYLE_OPEN      reduce using rule 6 (element -> conditional_comment .)
+    TAG_OPEN        reduce using rule 6 (element -> conditional_comment .)
+    $end            reduce using rule 6 (element -> conditional_comment .)
+
+
+state 7
+
+    (7) element -> xml .
+
+    SCRIPTLET       reduce using rule 7 (element -> xml .)
+    SEA_WS          reduce using rule 7 (element -> xml .)
+    HTML_TEXT       reduce using rule 7 (element -> xml .)
+    HTML_COMMENT    reduce using rule 7 (element -> xml .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 7 (element -> xml .)
+    XML             reduce using rule 7 (element -> xml .)
+    CDATA           reduce using rule 7 (element -> xml .)
+    DTD             reduce using rule 7 (element -> xml .)
+    SCRIPT_OPEN     reduce using rule 7 (element -> xml .)
+    STYLE_OPEN      reduce using rule 7 (element -> xml .)
+    TAG_OPEN        reduce using rule 7 (element -> xml .)
+    $end            reduce using rule 7 (element -> xml .)
+
+
+state 8
+
+    (8) element -> cdata .
+
+    SCRIPTLET       reduce using rule 8 (element -> cdata .)
+    SEA_WS          reduce using rule 8 (element -> cdata .)
+    HTML_TEXT       reduce using rule 8 (element -> cdata .)
+    HTML_COMMENT    reduce using rule 8 (element -> cdata .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 8 (element -> cdata .)
+    XML             reduce using rule 8 (element -> cdata .)
+    CDATA           reduce using rule 8 (element -> cdata .)
+    DTD             reduce using rule 8 (element -> cdata .)
+    SCRIPT_OPEN     reduce using rule 8 (element -> cdata .)
+    STYLE_OPEN      reduce using rule 8 (element -> cdata .)
+    TAG_OPEN        reduce using rule 8 (element -> cdata .)
+    $end            reduce using rule 8 (element -> cdata .)
+
+
+state 9
+
+    (9) element -> dtd .
+
+    SCRIPTLET       reduce using rule 9 (element -> dtd .)
+    SEA_WS          reduce using rule 9 (element -> dtd .)
+    HTML_TEXT       reduce using rule 9 (element -> dtd .)
+    HTML_COMMENT    reduce using rule 9 (element -> dtd .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 9 (element -> dtd .)
+    XML             reduce using rule 9 (element -> dtd .)
+    CDATA           reduce using rule 9 (element -> dtd .)
+    DTD             reduce using rule 9 (element -> dtd .)
+    SCRIPT_OPEN     reduce using rule 9 (element -> dtd .)
+    STYLE_OPEN      reduce using rule 9 (element -> dtd .)
+    TAG_OPEN        reduce using rule 9 (element -> dtd .)
+    $end            reduce using rule 9 (element -> dtd .)
+
+
+state 10
+
+    (10) element -> script .
+
+    SCRIPTLET       reduce using rule 10 (element -> script .)
+    SEA_WS          reduce using rule 10 (element -> script .)
+    HTML_TEXT       reduce using rule 10 (element -> script .)
+    HTML_COMMENT    reduce using rule 10 (element -> script .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 10 (element -> script .)
+    XML             reduce using rule 10 (element -> script .)
+    CDATA           reduce using rule 10 (element -> script .)
+    DTD             reduce using rule 10 (element -> script .)
+    SCRIPT_OPEN     reduce using rule 10 (element -> script .)
+    STYLE_OPEN      reduce using rule 10 (element -> script .)
+    TAG_OPEN        reduce using rule 10 (element -> script .)
+    $end            reduce using rule 10 (element -> script .)
+
+
+state 11
+
+    (11) element -> style .
+
+    SCRIPTLET       reduce using rule 11 (element -> style .)
+    SEA_WS          reduce using rule 11 (element -> style .)
+    HTML_TEXT       reduce using rule 11 (element -> style .)
+    HTML_COMMENT    reduce using rule 11 (element -> style .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 11 (element -> style .)
+    XML             reduce using rule 11 (element -> style .)
+    CDATA           reduce using rule 11 (element -> style .)
+    DTD             reduce using rule 11 (element -> style .)
+    SCRIPT_OPEN     reduce using rule 11 (element -> style .)
+    STYLE_OPEN      reduce using rule 11 (element -> style .)
+    TAG_OPEN        reduce using rule 11 (element -> style .)
+    $end            reduce using rule 11 (element -> style .)
+
+
+state 12
+
+    (12) element -> tag .
+
+    SCRIPTLET       reduce using rule 12 (element -> tag .)
+    SEA_WS          reduce using rule 12 (element -> tag .)
+    HTML_TEXT       reduce using rule 12 (element -> tag .)
+    HTML_COMMENT    reduce using rule 12 (element -> tag .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 12 (element -> tag .)
+    XML             reduce using rule 12 (element -> tag .)
+    CDATA           reduce using rule 12 (element -> tag .)
+    DTD             reduce using rule 12 (element -> tag .)
+    SCRIPT_OPEN     reduce using rule 12 (element -> tag .)
+    STYLE_OPEN      reduce using rule 12 (element -> tag .)
+    TAG_OPEN        reduce using rule 12 (element -> tag .)
+    $end            reduce using rule 12 (element -> tag .)
+
+
+state 13
+
+    (19) element -> SCRIPTLET .
+
+    SCRIPTLET       reduce using rule 19 (element -> SCRIPTLET .)
+    SEA_WS          reduce using rule 19 (element -> SCRIPTLET .)
+    HTML_TEXT       reduce using rule 19 (element -> SCRIPTLET .)
+    HTML_COMMENT    reduce using rule 19 (element -> SCRIPTLET .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 19 (element -> SCRIPTLET .)
+    XML             reduce using rule 19 (element -> SCRIPTLET .)
+    CDATA           reduce using rule 19 (element -> SCRIPTLET .)
+    DTD             reduce using rule 19 (element -> SCRIPTLET .)
+    SCRIPT_OPEN     reduce using rule 19 (element -> SCRIPTLET .)
+    STYLE_OPEN      reduce using rule 19 (element -> SCRIPTLET .)
+    TAG_OPEN        reduce using rule 19 (element -> SCRIPTLET .)
+    $end            reduce using rule 19 (element -> SCRIPTLET .)
+
+
+state 14
+
+    (20) element -> SEA_WS .
+
+    SCRIPTLET       reduce using rule 20 (element -> SEA_WS .)
+    SEA_WS          reduce using rule 20 (element -> SEA_WS .)
+    HTML_TEXT       reduce using rule 20 (element -> SEA_WS .)
+    HTML_COMMENT    reduce using rule 20 (element -> SEA_WS .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 20 (element -> SEA_WS .)
+    XML             reduce using rule 20 (element -> SEA_WS .)
+    CDATA           reduce using rule 20 (element -> SEA_WS .)
+    DTD             reduce using rule 20 (element -> SEA_WS .)
+    SCRIPT_OPEN     reduce using rule 20 (element -> SEA_WS .)
+    STYLE_OPEN      reduce using rule 20 (element -> SEA_WS .)
+    TAG_OPEN        reduce using rule 20 (element -> SEA_WS .)
+    $end            reduce using rule 20 (element -> SEA_WS .)
+
+
+state 15
+
+    (13) text -> HTML_TEXT .
+
+    SCRIPTLET       reduce using rule 13 (text -> HTML_TEXT .)
+    SEA_WS          reduce using rule 13 (text -> HTML_TEXT .)
+    HTML_TEXT       reduce using rule 13 (text -> HTML_TEXT .)
+    HTML_COMMENT    reduce using rule 13 (text -> HTML_TEXT .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 13 (text -> HTML_TEXT .)
+    XML             reduce using rule 13 (text -> HTML_TEXT .)
+    CDATA           reduce using rule 13 (text -> HTML_TEXT .)
+    DTD             reduce using rule 13 (text -> HTML_TEXT .)
+    SCRIPT_OPEN     reduce using rule 13 (text -> HTML_TEXT .)
+    STYLE_OPEN      reduce using rule 13 (text -> HTML_TEXT .)
+    TAG_OPEN        reduce using rule 13 (text -> HTML_TEXT .)
+    $end            reduce using rule 13 (text -> HTML_TEXT .)
+
+
+state 16
+
+    (14) comment -> HTML_COMMENT .
+
+    SCRIPTLET       reduce using rule 14 (comment -> HTML_COMMENT .)
+    SEA_WS          reduce using rule 14 (comment -> HTML_COMMENT .)
+    HTML_TEXT       reduce using rule 14 (comment -> HTML_COMMENT .)
+    HTML_COMMENT    reduce using rule 14 (comment -> HTML_COMMENT .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 14 (comment -> HTML_COMMENT .)
+    XML             reduce using rule 14 (comment -> HTML_COMMENT .)
+    CDATA           reduce using rule 14 (comment -> HTML_COMMENT .)
+    DTD             reduce using rule 14 (comment -> HTML_COMMENT .)
+    SCRIPT_OPEN     reduce using rule 14 (comment -> HTML_COMMENT .)
+    STYLE_OPEN      reduce using rule 14 (comment -> HTML_COMMENT .)
+    TAG_OPEN        reduce using rule 14 (comment -> HTML_COMMENT .)
+    $end            reduce using rule 14 (comment -> HTML_COMMENT .)
+
+
+state 17
+
+    (15) conditional_comment -> HTML_CONDITIONAL_COMMENT .
+
+    SCRIPTLET       reduce using rule 15 (conditional_comment -> HTML_CONDITIONAL_COMMENT .)
+    SEA_WS          reduce using rule 15 (conditional_comment -> HTML_CONDITIONAL_COMMENT .)
+    HTML_TEXT       reduce using rule 15 (conditional_comment -> HTML_CONDITIONAL_COMMENT .)
+    HTML_COMMENT    reduce using rule 15 (conditional_comment -> HTML_CONDITIONAL_COMMENT .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 15 (conditional_comment -> HTML_CONDITIONAL_COMMENT .)
+    XML             reduce using rule 15 (conditional_comment -> HTML_CONDITIONAL_COMMENT .)
+    CDATA           reduce using rule 15 (conditional_comment -> HTML_CONDITIONAL_COMMENT .)
+    DTD             reduce using rule 15 (conditional_comment -> HTML_CONDITIONAL_COMMENT .)
+    SCRIPT_OPEN     reduce using rule 15 (conditional_comment -> HTML_CONDITIONAL_COMMENT .)
+    STYLE_OPEN      reduce using rule 15 (conditional_comment -> HTML_CONDITIONAL_COMMENT .)
+    TAG_OPEN        reduce using rule 15 (conditional_comment -> HTML_CONDITIONAL_COMMENT .)
+    $end            reduce using rule 15 (conditional_comment -> HTML_CONDITIONAL_COMMENT .)
+
+
+state 18
+
+    (16) xml -> XML .
+
+    SCRIPTLET       reduce using rule 16 (xml -> XML .)
+    SEA_WS          reduce using rule 16 (xml -> XML .)
+    HTML_TEXT       reduce using rule 16 (xml -> XML .)
+    HTML_COMMENT    reduce using rule 16 (xml -> XML .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 16 (xml -> XML .)
+    XML             reduce using rule 16 (xml -> XML .)
+    CDATA           reduce using rule 16 (xml -> XML .)
+    DTD             reduce using rule 16 (xml -> XML .)
+    SCRIPT_OPEN     reduce using rule 16 (xml -> XML .)
+    STYLE_OPEN      reduce using rule 16 (xml -> XML .)
+    TAG_OPEN        reduce using rule 16 (xml -> XML .)
+    $end            reduce using rule 16 (xml -> XML .)
+
+
+state 19
+
+    (17) cdata -> CDATA .
+
+    SCRIPTLET       reduce using rule 17 (cdata -> CDATA .)
+    SEA_WS          reduce using rule 17 (cdata -> CDATA .)
+    HTML_TEXT       reduce using rule 17 (cdata -> CDATA .)
+    HTML_COMMENT    reduce using rule 17 (cdata -> CDATA .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 17 (cdata -> CDATA .)
+    XML             reduce using rule 17 (cdata -> CDATA .)
+    CDATA           reduce using rule 17 (cdata -> CDATA .)
+    DTD             reduce using rule 17 (cdata -> CDATA .)
+    SCRIPT_OPEN     reduce using rule 17 (cdata -> CDATA .)
+    STYLE_OPEN      reduce using rule 17 (cdata -> CDATA .)
+    TAG_OPEN        reduce using rule 17 (cdata -> CDATA .)
+    $end            reduce using rule 17 (cdata -> CDATA .)
+
+
+state 20
+
+    (18) dtd -> DTD .
+
+    SCRIPTLET       reduce using rule 18 (dtd -> DTD .)
+    SEA_WS          reduce using rule 18 (dtd -> DTD .)
+    HTML_TEXT       reduce using rule 18 (dtd -> DTD .)
+    HTML_COMMENT    reduce using rule 18 (dtd -> DTD .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 18 (dtd -> DTD .)
+    XML             reduce using rule 18 (dtd -> DTD .)
+    CDATA           reduce using rule 18 (dtd -> DTD .)
+    DTD             reduce using rule 18 (dtd -> DTD .)
+    SCRIPT_OPEN     reduce using rule 18 (dtd -> DTD .)
+    STYLE_OPEN      reduce using rule 18 (dtd -> DTD .)
+    TAG_OPEN        reduce using rule 18 (dtd -> DTD .)
+    $end            reduce using rule 18 (dtd -> DTD .)
+
+
+state 21
+
+    (21) script -> SCRIPT_OPEN . script_body SCRIPT_CLOSE
+    (22) script_body -> . SCRIPT_BODY
+
+    SCRIPT_BODY     shift and go to state 26
+
+    script_body                    shift and go to state 25
+
+state 22
+
+    (24) style -> STYLE_OPEN . style_body STYLE_CLOSE
+    (25) style_body -> . STYLE_BODY
+
+    STYLE_BODY      shift and go to state 28
+
+    style_body                     shift and go to state 27
+
+state 23
+
+    (27) tag -> TAG_OPEN . tag_name tag_attributes TAG_CLOSE
+    (28) tag -> TAG_OPEN . tag_name tag_attributes TAG_SLASH_CLOSE
+    (29) tag -> TAG_OPEN . TAG_SLASH tag_name TAG_CLOSE
+    (30) tag_name -> . TAG_NAME
+
+    TAG_SLASH       shift and go to state 30
+    TAG_NAME        shift and go to state 31
+
+    tag_name                       shift and go to state 29
+
+state 24
+
+    (2) elements -> elements element .
+
+    SCRIPTLET       reduce using rule 2 (elements -> elements element .)
+    SEA_WS          reduce using rule 2 (elements -> elements element .)
+    HTML_TEXT       reduce using rule 2 (elements -> elements element .)
+    HTML_COMMENT    reduce using rule 2 (elements -> elements element .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 2 (elements -> elements element .)
+    XML             reduce using rule 2 (elements -> elements element .)
+    CDATA           reduce using rule 2 (elements -> elements element .)
+    DTD             reduce using rule 2 (elements -> elements element .)
+    SCRIPT_OPEN     reduce using rule 2 (elements -> elements element .)
+    STYLE_OPEN      reduce using rule 2 (elements -> elements element .)
+    TAG_OPEN        reduce using rule 2 (elements -> elements element .)
+    $end            reduce using rule 2 (elements -> elements element .)
+
+
+state 25
+
+    (21) script -> SCRIPT_OPEN script_body . SCRIPT_CLOSE
+    (23) SCRIPT_CLOSE -> . TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE
+
+    TAG_OPEN        shift and go to state 33
+
+    SCRIPT_CLOSE                   shift and go to state 32
+
+state 26
+
+    (22) script_body -> SCRIPT_BODY .
+
+    TAG_OPEN        reduce using rule 22 (script_body -> SCRIPT_BODY .)
+
+
+state 27
+
+    (24) style -> STYLE_OPEN style_body . STYLE_CLOSE
+    (26) STYLE_CLOSE -> . TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE
+
+    TAG_OPEN        shift and go to state 35
+
+    STYLE_CLOSE                    shift and go to state 34
+
+state 28
+
+    (25) style_body -> STYLE_BODY .
+
+    TAG_OPEN        reduce using rule 25 (style_body -> STYLE_BODY .)
+
+
+state 29
+
+    (27) tag -> TAG_OPEN tag_name . tag_attributes TAG_CLOSE
+    (28) tag -> TAG_OPEN tag_name . tag_attributes TAG_SLASH_CLOSE
+    (31) tag_attributes -> . tag_attributes tag_attribute
+    (32) tag_attributes -> . empty
+    (37) empty -> .
+
+    TAG_CLOSE       reduce using rule 37 (empty -> .)
+    TAG_SLASH_CLOSE reduce using rule 37 (empty -> .)
+    TAG_NAME        reduce using rule 37 (empty -> .)
+
+    tag_attributes                 shift and go to state 36
+    empty                          shift and go to state 37
+
+state 30
+
+    (29) tag -> TAG_OPEN TAG_SLASH . tag_name TAG_CLOSE
+    (30) tag_name -> . TAG_NAME
+
+    TAG_NAME        shift and go to state 31
+
+    tag_name                       shift and go to state 38
+
+state 31
+
+    (30) tag_name -> TAG_NAME .
+
+    TAG_CLOSE       reduce using rule 30 (tag_name -> TAG_NAME .)
+    TAG_SLASH_CLOSE reduce using rule 30 (tag_name -> TAG_NAME .)
+    TAG_NAME        reduce using rule 30 (tag_name -> TAG_NAME .)
+
+
+state 32
+
+    (21) script -> SCRIPT_OPEN script_body SCRIPT_CLOSE .
+
+    SCRIPTLET       reduce using rule 21 (script -> SCRIPT_OPEN script_body SCRIPT_CLOSE .)
+    SEA_WS          reduce using rule 21 (script -> SCRIPT_OPEN script_body SCRIPT_CLOSE .)
+    HTML_TEXT       reduce using rule 21 (script -> SCRIPT_OPEN script_body SCRIPT_CLOSE .)
+    HTML_COMMENT    reduce using rule 21 (script -> SCRIPT_OPEN script_body SCRIPT_CLOSE .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 21 (script -> SCRIPT_OPEN script_body SCRIPT_CLOSE .)
+    XML             reduce using rule 21 (script -> SCRIPT_OPEN script_body SCRIPT_CLOSE .)
+    CDATA           reduce using rule 21 (script -> SCRIPT_OPEN script_body SCRIPT_CLOSE .)
+    DTD             reduce using rule 21 (script -> SCRIPT_OPEN script_body SCRIPT_CLOSE .)
+    SCRIPT_OPEN     reduce using rule 21 (script -> SCRIPT_OPEN script_body SCRIPT_CLOSE .)
+    STYLE_OPEN      reduce using rule 21 (script -> SCRIPT_OPEN script_body SCRIPT_CLOSE .)
+    TAG_OPEN        reduce using rule 21 (script -> SCRIPT_OPEN script_body SCRIPT_CLOSE .)
+    $end            reduce using rule 21 (script -> SCRIPT_OPEN script_body SCRIPT_CLOSE .)
+
+
+state 33
+
+    (23) SCRIPT_CLOSE -> TAG_OPEN . TAG_SLASH TAG_NAME TAG_CLOSE
+
+    TAG_SLASH       shift and go to state 39
+
+
+state 34
+
+    (24) style -> STYLE_OPEN style_body STYLE_CLOSE .
+
+    SCRIPTLET       reduce using rule 24 (style -> STYLE_OPEN style_body STYLE_CLOSE .)
+    SEA_WS          reduce using rule 24 (style -> STYLE_OPEN style_body STYLE_CLOSE .)
+    HTML_TEXT       reduce using rule 24 (style -> STYLE_OPEN style_body STYLE_CLOSE .)
+    HTML_COMMENT    reduce using rule 24 (style -> STYLE_OPEN style_body STYLE_CLOSE .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 24 (style -> STYLE_OPEN style_body STYLE_CLOSE .)
+    XML             reduce using rule 24 (style -> STYLE_OPEN style_body STYLE_CLOSE .)
+    CDATA           reduce using rule 24 (style -> STYLE_OPEN style_body STYLE_CLOSE .)
+    DTD             reduce using rule 24 (style -> STYLE_OPEN style_body STYLE_CLOSE .)
+    SCRIPT_OPEN     reduce using rule 24 (style -> STYLE_OPEN style_body STYLE_CLOSE .)
+    STYLE_OPEN      reduce using rule 24 (style -> STYLE_OPEN style_body STYLE_CLOSE .)
+    TAG_OPEN        reduce using rule 24 (style -> STYLE_OPEN style_body STYLE_CLOSE .)
+    $end            reduce using rule 24 (style -> STYLE_OPEN style_body STYLE_CLOSE .)
+
+
+state 35
+
+    (26) STYLE_CLOSE -> TAG_OPEN . TAG_SLASH TAG_NAME TAG_CLOSE
+
+    TAG_SLASH       shift and go to state 40
+
+
+state 36
+
+    (27) tag -> TAG_OPEN tag_name tag_attributes . TAG_CLOSE
+    (28) tag -> TAG_OPEN tag_name tag_attributes . TAG_SLASH_CLOSE
+    (31) tag_attributes -> tag_attributes . tag_attribute
+    (33) tag_attribute -> . TAG_NAME TAG_EQUALS attribute_value
+
+    TAG_CLOSE       shift and go to state 41
+    TAG_SLASH_CLOSE shift and go to state 42
+    TAG_NAME        shift and go to state 44
+
+    tag_attribute                  shift and go to state 43
+
+state 37
+
+    (32) tag_attributes -> empty .
+
+    TAG_CLOSE       reduce using rule 32 (tag_attributes -> empty .)
+    TAG_SLASH_CLOSE reduce using rule 32 (tag_attributes -> empty .)
+    TAG_NAME        reduce using rule 32 (tag_attributes -> empty .)
+
+
+state 38
+
+    (29) tag -> TAG_OPEN TAG_SLASH tag_name . TAG_CLOSE
+
+    TAG_CLOSE       shift and go to state 45
+
+
+state 39
+
+    (23) SCRIPT_CLOSE -> TAG_OPEN TAG_SLASH . TAG_NAME TAG_CLOSE
+
+    TAG_NAME        shift and go to state 46
+
+
+state 40
+
+    (26) STYLE_CLOSE -> TAG_OPEN TAG_SLASH . TAG_NAME TAG_CLOSE
+
+    TAG_NAME        shift and go to state 47
+
+
+state 41
+
+    (27) tag -> TAG_OPEN tag_name tag_attributes TAG_CLOSE .
+
+    SCRIPTLET       reduce using rule 27 (tag -> TAG_OPEN tag_name tag_attributes TAG_CLOSE .)
+    SEA_WS          reduce using rule 27 (tag -> TAG_OPEN tag_name tag_attributes TAG_CLOSE .)
+    HTML_TEXT       reduce using rule 27 (tag -> TAG_OPEN tag_name tag_attributes TAG_CLOSE .)
+    HTML_COMMENT    reduce using rule 27 (tag -> TAG_OPEN tag_name tag_attributes TAG_CLOSE .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 27 (tag -> TAG_OPEN tag_name tag_attributes TAG_CLOSE .)
+    XML             reduce using rule 27 (tag -> TAG_OPEN tag_name tag_attributes TAG_CLOSE .)
+    CDATA           reduce using rule 27 (tag -> TAG_OPEN tag_name tag_attributes TAG_CLOSE .)
+    DTD             reduce using rule 27 (tag -> TAG_OPEN tag_name tag_attributes TAG_CLOSE .)
+    SCRIPT_OPEN     reduce using rule 27 (tag -> TAG_OPEN tag_name tag_attributes TAG_CLOSE .)
+    STYLE_OPEN      reduce using rule 27 (tag -> TAG_OPEN tag_name tag_attributes TAG_CLOSE .)
+    TAG_OPEN        reduce using rule 27 (tag -> TAG_OPEN tag_name tag_attributes TAG_CLOSE .)
+    $end            reduce using rule 27 (tag -> TAG_OPEN tag_name tag_attributes TAG_CLOSE .)
+
+
+state 42
+
+    (28) tag -> TAG_OPEN tag_name tag_attributes TAG_SLASH_CLOSE .
+
+    SCRIPTLET       reduce using rule 28 (tag -> TAG_OPEN tag_name tag_attributes TAG_SLASH_CLOSE .)
+    SEA_WS          reduce using rule 28 (tag -> TAG_OPEN tag_name tag_attributes TAG_SLASH_CLOSE .)
+    HTML_TEXT       reduce using rule 28 (tag -> TAG_OPEN tag_name tag_attributes TAG_SLASH_CLOSE .)
+    HTML_COMMENT    reduce using rule 28 (tag -> TAG_OPEN tag_name tag_attributes TAG_SLASH_CLOSE .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 28 (tag -> TAG_OPEN tag_name tag_attributes TAG_SLASH_CLOSE .)
+    XML             reduce using rule 28 (tag -> TAG_OPEN tag_name tag_attributes TAG_SLASH_CLOSE .)
+    CDATA           reduce using rule 28 (tag -> TAG_OPEN tag_name tag_attributes TAG_SLASH_CLOSE .)
+    DTD             reduce using rule 28 (tag -> TAG_OPEN tag_name tag_attributes TAG_SLASH_CLOSE .)
+    SCRIPT_OPEN     reduce using rule 28 (tag -> TAG_OPEN tag_name tag_attributes TAG_SLASH_CLOSE .)
+    STYLE_OPEN      reduce using rule 28 (tag -> TAG_OPEN tag_name tag_attributes TAG_SLASH_CLOSE .)
+    TAG_OPEN        reduce using rule 28 (tag -> TAG_OPEN tag_name tag_attributes TAG_SLASH_CLOSE .)
+    $end            reduce using rule 28 (tag -> TAG_OPEN tag_name tag_attributes TAG_SLASH_CLOSE .)
+
+
+state 43
+
+    (31) tag_attributes -> tag_attributes tag_attribute .
+
+    TAG_CLOSE       reduce using rule 31 (tag_attributes -> tag_attributes tag_attribute .)
+    TAG_SLASH_CLOSE reduce using rule 31 (tag_attributes -> tag_attributes tag_attribute .)
+    TAG_NAME        reduce using rule 31 (tag_attributes -> tag_attributes tag_attribute .)
+
+
+state 44
+
+    (33) tag_attribute -> TAG_NAME . TAG_EQUALS attribute_value
+
+    TAG_EQUALS      shift and go to state 48
+
+
+state 45
+
+    (29) tag -> TAG_OPEN TAG_SLASH tag_name TAG_CLOSE .
+
+    SCRIPTLET       reduce using rule 29 (tag -> TAG_OPEN TAG_SLASH tag_name TAG_CLOSE .)
+    SEA_WS          reduce using rule 29 (tag -> TAG_OPEN TAG_SLASH tag_name TAG_CLOSE .)
+    HTML_TEXT       reduce using rule 29 (tag -> TAG_OPEN TAG_SLASH tag_name TAG_CLOSE .)
+    HTML_COMMENT    reduce using rule 29 (tag -> TAG_OPEN TAG_SLASH tag_name TAG_CLOSE .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 29 (tag -> TAG_OPEN TAG_SLASH tag_name TAG_CLOSE .)
+    XML             reduce using rule 29 (tag -> TAG_OPEN TAG_SLASH tag_name TAG_CLOSE .)
+    CDATA           reduce using rule 29 (tag -> TAG_OPEN TAG_SLASH tag_name TAG_CLOSE .)
+    DTD             reduce using rule 29 (tag -> TAG_OPEN TAG_SLASH tag_name TAG_CLOSE .)
+    SCRIPT_OPEN     reduce using rule 29 (tag -> TAG_OPEN TAG_SLASH tag_name TAG_CLOSE .)
+    STYLE_OPEN      reduce using rule 29 (tag -> TAG_OPEN TAG_SLASH tag_name TAG_CLOSE .)
+    TAG_OPEN        reduce using rule 29 (tag -> TAG_OPEN TAG_SLASH tag_name TAG_CLOSE .)
+    $end            reduce using rule 29 (tag -> TAG_OPEN TAG_SLASH tag_name TAG_CLOSE .)
+
+
+state 46
+
+    (23) SCRIPT_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME . TAG_CLOSE
+
+    TAG_CLOSE       shift and go to state 49
+
+
+state 47
+
+    (26) STYLE_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME . TAG_CLOSE
+
+    TAG_CLOSE       shift and go to state 50
+
+
+state 48
+
+    (33) tag_attribute -> TAG_NAME TAG_EQUALS . attribute_value
+    (34) attribute_value -> . ATTVALUE_VALUE
+
+    ATTVALUE_VALUE  shift and go to state 52
+
+    attribute_value                shift and go to state 51
+
+state 49
+
+    (23) SCRIPT_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .
+
+    SCRIPTLET       reduce using rule 23 (SCRIPT_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    SEA_WS          reduce using rule 23 (SCRIPT_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    HTML_TEXT       reduce using rule 23 (SCRIPT_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    HTML_COMMENT    reduce using rule 23 (SCRIPT_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 23 (SCRIPT_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    XML             reduce using rule 23 (SCRIPT_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    CDATA           reduce using rule 23 (SCRIPT_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    DTD             reduce using rule 23 (SCRIPT_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    SCRIPT_OPEN     reduce using rule 23 (SCRIPT_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    STYLE_OPEN      reduce using rule 23 (SCRIPT_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    TAG_OPEN        reduce using rule 23 (SCRIPT_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    $end            reduce using rule 23 (SCRIPT_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+
+
+state 50
+
+    (26) STYLE_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .
+
+    SCRIPTLET       reduce using rule 26 (STYLE_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    SEA_WS          reduce using rule 26 (STYLE_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    HTML_TEXT       reduce using rule 26 (STYLE_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    HTML_COMMENT    reduce using rule 26 (STYLE_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    HTML_CONDITIONAL_COMMENT reduce using rule 26 (STYLE_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    XML             reduce using rule 26 (STYLE_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    CDATA           reduce using rule 26 (STYLE_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    DTD             reduce using rule 26 (STYLE_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    SCRIPT_OPEN     reduce using rule 26 (STYLE_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    STYLE_OPEN      reduce using rule 26 (STYLE_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    TAG_OPEN        reduce using rule 26 (STYLE_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+    $end            reduce using rule 26 (STYLE_CLOSE -> TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE .)
+
+
+state 51
+
+    (33) tag_attribute -> TAG_NAME TAG_EQUALS attribute_value .
+
+    TAG_CLOSE       reduce using rule 33 (tag_attribute -> TAG_NAME TAG_EQUALS attribute_value .)
+    TAG_SLASH_CLOSE reduce using rule 33 (tag_attribute -> TAG_NAME TAG_EQUALS attribute_value .)
+    TAG_NAME        reduce using rule 33 (tag_attribute -> TAG_NAME TAG_EQUALS attribute_value .)
+
+
+state 52
+
+    (34) attribute_value -> ATTVALUE_VALUE .
+
+    TAG_CLOSE       reduce using rule 34 (attribute_value -> ATTVALUE_VALUE .)
+    TAG_SLASH_CLOSE reduce using rule 34 (attribute_value -> ATTVALUE_VALUE .)
+    TAG_NAME        reduce using rule 34 (attribute_value -> ATTVALUE_VALUE .)
+

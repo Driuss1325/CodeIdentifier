@@ -1,0 +1,13 @@
+PngImagePlugin.py: 191:STREAM b'IHDR' 16 13
+PngImagePlugin.py: 191:STREAM b'gAMA' 41 4
+PngImagePlugin.py: 191:STREAM b'cHRM' 57 32
+PngImagePlugin.py: 191:STREAM b'bKGD' 101 6
+PngImagePlugin.py: 728:b'bKGD' 101 6 (unknown)
+PngImagePlugin.py: 191:STREAM b'IDAT' 119 32768
+PngImagePlugin.py: 191:STREAM b'tEXt' 130680 37
+PngImagePlugin.py: 191:STREAM b'tEXt' 130729 37
+   yacc.py:3372:Token 'COMEN' defined, but not used
+   yacc.py:3372:Token 'PUN' defined, but not used
+   yacc.py:3391:There are 2 unused tokens
+   yacc.py:3436:Generating LALR tables
+   yacc.py:3445:1 shift/reduce conflict

@@ -1,0 +1,741 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statement_list
+Rule 2     statement_list -> statement
+Rule 3     statement_list -> statement_list statement
+Rule 4     statement -> var_declaration
+Rule 5     statement -> function_declaration
+Rule 6     statement -> expression_statement
+Rule 7     statement -> return_statement
+Rule 8     var_declaration -> VAR ID ASSIGN expression SEMICOLON
+Rule 9     function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE statement_list RBRACE
+Rule 10    parameters -> ID
+Rule 11    parameters -> parameters COMMA ID
+Rule 12    parameters -> empty
+Rule 13    empty -> <empty>
+Rule 14    return_statement -> RETURN expression SEMICOLON
+Rule 15    expression_statement -> expression SEMICOLON
+Rule 16    expression -> expression PLUS expression
+Rule 17    expression -> expression MINUS expression
+Rule 18    expression -> expression TIMES expression
+Rule 19    expression -> expression DIVIDE expression
+Rule 20    expression -> LPAREN expression RPAREN
+Rule 21    expression -> NUMBER
+Rule 22    expression -> ID
+
+Terminals, with rules where they appear
+
+ASSIGN               : 8
+COMMA                : 11
+DIVIDE               : 19
+FUNCTION             : 9
+ID                   : 8 9 10 11 22
+LBRACE               : 9
+LPAREN               : 9 20
+MINUS                : 17
+NUMBER               : 21
+PLUS                 : 16
+RBRACE               : 9
+RETURN               : 14
+RPAREN               : 9 20
+SEMICOLON            : 8 14 15
+TIMES                : 18
+VAR                  : 8
+error                : 
+
+Nonterminals, with rules where they appear
+
+empty                : 12
+expression           : 8 14 15 16 16 17 17 18 18 19 19 20
+expression_statement : 6
+function_declaration : 5
+parameters           : 9 11
+program              : 0
+return_statement     : 7
+statement            : 2 3
+statement_list       : 1 3 9
+var_declaration      : 4
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statement_list
+    (2) statement_list -> . statement
+    (3) statement_list -> . statement_list statement
+    (4) statement -> . var_declaration
+    (5) statement -> . function_declaration
+    (6) statement -> . expression_statement
+    (7) statement -> . return_statement
+    (8) var_declaration -> . VAR ID ASSIGN expression SEMICOLON
+    (9) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE statement_list RBRACE
+    (15) expression_statement -> . expression SEMICOLON
+    (14) return_statement -> . RETURN expression SEMICOLON
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . LPAREN expression RPAREN
+    (21) expression -> . NUMBER
+    (22) expression -> . ID
+
+    VAR             shift and go to state 8
+    FUNCTION        shift and go to state 11
+    RETURN          shift and go to state 13
+    LPAREN          shift and go to state 12
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 9
+
+    program                        shift and go to state 1
+    statement_list                 shift and go to state 2
+    statement                      shift and go to state 3
+    var_declaration                shift and go to state 4
+    function_declaration           shift and go to state 5
+    expression_statement           shift and go to state 6
+    return_statement               shift and go to state 7
+    expression                     shift and go to state 10
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statement_list .
+    (3) statement_list -> statement_list . statement
+    (4) statement -> . var_declaration
+    (5) statement -> . function_declaration
+    (6) statement -> . expression_statement
+    (7) statement -> . return_statement
+    (8) var_declaration -> . VAR ID ASSIGN expression SEMICOLON
+    (9) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE statement_list RBRACE
+    (15) expression_statement -> . expression SEMICOLON
+    (14) return_statement -> . RETURN expression SEMICOLON
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . LPAREN expression RPAREN
+    (21) expression -> . NUMBER
+    (22) expression -> . ID
+
+    $end            reduce using rule 1 (program -> statement_list .)
+    VAR             shift and go to state 8
+    FUNCTION        shift and go to state 11
+    RETURN          shift and go to state 13
+    LPAREN          shift and go to state 12
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 9
+
+    statement                      shift and go to state 15
+    var_declaration                shift and go to state 4
+    function_declaration           shift and go to state 5
+    expression_statement           shift and go to state 6
+    return_statement               shift and go to state 7
+    expression                     shift and go to state 10
+
+state 3
+
+    (2) statement_list -> statement .
+
+    VAR             reduce using rule 2 (statement_list -> statement .)
+    FUNCTION        reduce using rule 2 (statement_list -> statement .)
+    RETURN          reduce using rule 2 (statement_list -> statement .)
+    LPAREN          reduce using rule 2 (statement_list -> statement .)
+    NUMBER          reduce using rule 2 (statement_list -> statement .)
+    ID              reduce using rule 2 (statement_list -> statement .)
+    $end            reduce using rule 2 (statement_list -> statement .)
+    RBRACE          reduce using rule 2 (statement_list -> statement .)
+
+
+state 4
+
+    (4) statement -> var_declaration .
+
+    VAR             reduce using rule 4 (statement -> var_declaration .)
+    FUNCTION        reduce using rule 4 (statement -> var_declaration .)
+    RETURN          reduce using rule 4 (statement -> var_declaration .)
+    LPAREN          reduce using rule 4 (statement -> var_declaration .)
+    NUMBER          reduce using rule 4 (statement -> var_declaration .)
+    ID              reduce using rule 4 (statement -> var_declaration .)
+    $end            reduce using rule 4 (statement -> var_declaration .)
+    RBRACE          reduce using rule 4 (statement -> var_declaration .)
+
+
+state 5
+
+    (5) statement -> function_declaration .
+
+    VAR             reduce using rule 5 (statement -> function_declaration .)
+    FUNCTION        reduce using rule 5 (statement -> function_declaration .)
+    RETURN          reduce using rule 5 (statement -> function_declaration .)
+    LPAREN          reduce using rule 5 (statement -> function_declaration .)
+    NUMBER          reduce using rule 5 (statement -> function_declaration .)
+    ID              reduce using rule 5 (statement -> function_declaration .)
+    $end            reduce using rule 5 (statement -> function_declaration .)
+    RBRACE          reduce using rule 5 (statement -> function_declaration .)
+
+
+state 6
+
+    (6) statement -> expression_statement .
+
+    VAR             reduce using rule 6 (statement -> expression_statement .)
+    FUNCTION        reduce using rule 6 (statement -> expression_statement .)
+    RETURN          reduce using rule 6 (statement -> expression_statement .)
+    LPAREN          reduce using rule 6 (statement -> expression_statement .)
+    NUMBER          reduce using rule 6 (statement -> expression_statement .)
+    ID              reduce using rule 6 (statement -> expression_statement .)
+    $end            reduce using rule 6 (statement -> expression_statement .)
+    RBRACE          reduce using rule 6 (statement -> expression_statement .)
+
+
+state 7
+
+    (7) statement -> return_statement .
+
+    VAR             reduce using rule 7 (statement -> return_statement .)
+    FUNCTION        reduce using rule 7 (statement -> return_statement .)
+    RETURN          reduce using rule 7 (statement -> return_statement .)
+    LPAREN          reduce using rule 7 (statement -> return_statement .)
+    NUMBER          reduce using rule 7 (statement -> return_statement .)
+    ID              reduce using rule 7 (statement -> return_statement .)
+    $end            reduce using rule 7 (statement -> return_statement .)
+    RBRACE          reduce using rule 7 (statement -> return_statement .)
+
+
+state 8
+
+    (8) var_declaration -> VAR . ID ASSIGN expression SEMICOLON
+
+    ID              shift and go to state 16
+
+
+state 9
+
+    (22) expression -> ID .
+
+    SEMICOLON       reduce using rule 22 (expression -> ID .)
+    PLUS            reduce using rule 22 (expression -> ID .)
+    MINUS           reduce using rule 22 (expression -> ID .)
+    TIMES           reduce using rule 22 (expression -> ID .)
+    DIVIDE          reduce using rule 22 (expression -> ID .)
+    RPAREN          reduce using rule 22 (expression -> ID .)
+
+
+state 10
+
+    (15) expression_statement -> expression . SEMICOLON
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+
+    SEMICOLON       shift and go to state 17
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 19
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+
+
+state 11
+
+    (9) function_declaration -> FUNCTION . ID LPAREN parameters RPAREN LBRACE statement_list RBRACE
+
+    ID              shift and go to state 22
+
+
+state 12
+
+    (20) expression -> LPAREN . expression RPAREN
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . LPAREN expression RPAREN
+    (21) expression -> . NUMBER
+    (22) expression -> . ID
+
+    LPAREN          shift and go to state 12
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 9
+
+    expression                     shift and go to state 23
+
+state 13
+
+    (14) return_statement -> RETURN . expression SEMICOLON
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . LPAREN expression RPAREN
+    (21) expression -> . NUMBER
+    (22) expression -> . ID
+
+    LPAREN          shift and go to state 12
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 9
+
+    expression                     shift and go to state 24
+
+state 14
+
+    (21) expression -> NUMBER .
+
+    SEMICOLON       reduce using rule 21 (expression -> NUMBER .)
+    PLUS            reduce using rule 21 (expression -> NUMBER .)
+    MINUS           reduce using rule 21 (expression -> NUMBER .)
+    TIMES           reduce using rule 21 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 21 (expression -> NUMBER .)
+    RPAREN          reduce using rule 21 (expression -> NUMBER .)
+
+
+state 15
+
+    (3) statement_list -> statement_list statement .
+
+    VAR             reduce using rule 3 (statement_list -> statement_list statement .)
+    FUNCTION        reduce using rule 3 (statement_list -> statement_list statement .)
+    RETURN          reduce using rule 3 (statement_list -> statement_list statement .)
+    LPAREN          reduce using rule 3 (statement_list -> statement_list statement .)
+    NUMBER          reduce using rule 3 (statement_list -> statement_list statement .)
+    ID              reduce using rule 3 (statement_list -> statement_list statement .)
+    $end            reduce using rule 3 (statement_list -> statement_list statement .)
+    RBRACE          reduce using rule 3 (statement_list -> statement_list statement .)
+
+
+state 16
+
+    (8) var_declaration -> VAR ID . ASSIGN expression SEMICOLON
+
+    ASSIGN          shift and go to state 25
+
+
+state 17
+
+    (15) expression_statement -> expression SEMICOLON .
+
+    VAR             reduce using rule 15 (expression_statement -> expression SEMICOLON .)
+    FUNCTION        reduce using rule 15 (expression_statement -> expression SEMICOLON .)
+    RETURN          reduce using rule 15 (expression_statement -> expression SEMICOLON .)
+    LPAREN          reduce using rule 15 (expression_statement -> expression SEMICOLON .)
+    NUMBER          reduce using rule 15 (expression_statement -> expression SEMICOLON .)
+    ID              reduce using rule 15 (expression_statement -> expression SEMICOLON .)
+    $end            reduce using rule 15 (expression_statement -> expression SEMICOLON .)
+    RBRACE          reduce using rule 15 (expression_statement -> expression SEMICOLON .)
+
+
+state 18
+
+    (16) expression -> expression PLUS . expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . LPAREN expression RPAREN
+    (21) expression -> . NUMBER
+    (22) expression -> . ID
+
+    LPAREN          shift and go to state 12
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 9
+
+    expression                     shift and go to state 26
+
+state 19
+
+    (17) expression -> expression MINUS . expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . LPAREN expression RPAREN
+    (21) expression -> . NUMBER
+    (22) expression -> . ID
+
+    LPAREN          shift and go to state 12
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 9
+
+    expression                     shift and go to state 27
+
+state 20
+
+    (18) expression -> expression TIMES . expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . LPAREN expression RPAREN
+    (21) expression -> . NUMBER
+    (22) expression -> . ID
+
+    LPAREN          shift and go to state 12
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 9
+
+    expression                     shift and go to state 28
+
+state 21
+
+    (19) expression -> expression DIVIDE . expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . LPAREN expression RPAREN
+    (21) expression -> . NUMBER
+    (22) expression -> . ID
+
+    LPAREN          shift and go to state 12
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 9
+
+    expression                     shift and go to state 29
+
+state 22
+
+    (9) function_declaration -> FUNCTION ID . LPAREN parameters RPAREN LBRACE statement_list RBRACE
+
+    LPAREN          shift and go to state 30
+
+
+state 23
+
+    (20) expression -> LPAREN expression . RPAREN
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+
+    RPAREN          shift and go to state 31
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 19
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+
+
+state 24
+
+    (14) return_statement -> RETURN expression . SEMICOLON
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+
+    SEMICOLON       shift and go to state 32
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 19
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+
+
+state 25
+
+    (8) var_declaration -> VAR ID ASSIGN . expression SEMICOLON
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . LPAREN expression RPAREN
+    (21) expression -> . NUMBER
+    (22) expression -> . ID
+
+    LPAREN          shift and go to state 12
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 9
+
+    expression                     shift and go to state 33
+
+state 26
+
+    (16) expression -> expression PLUS expression .
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 16 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 16 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 16 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 16 (expression -> expression PLUS expression .)
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+
+  ! TIMES           [ reduce using rule 16 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 16 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 19 ]
+
+
+state 27
+
+    (17) expression -> expression MINUS expression .
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 17 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 17 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 17 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 17 (expression -> expression MINUS expression .)
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+
+  ! TIMES           [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 19 ]
+
+
+state 28
+
+    (18) expression -> expression TIMES expression .
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 18 (expression -> expression TIMES expression .)
+    PLUS            reduce using rule 18 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 18 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 18 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 18 (expression -> expression TIMES expression .)
+    RPAREN          reduce using rule 18 (expression -> expression TIMES expression .)
+
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 19 ]
+  ! TIMES           [ shift and go to state 20 ]
+  ! DIVIDE          [ shift and go to state 21 ]
+
+
+state 29
+
+    (19) expression -> expression DIVIDE expression .
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 19 (expression -> expression DIVIDE expression .)
+    PLUS            reduce using rule 19 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 19 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 19 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 19 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 19 (expression -> expression DIVIDE expression .)
+
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 19 ]
+  ! TIMES           [ shift and go to state 20 ]
+  ! DIVIDE          [ shift and go to state 21 ]
+
+
+state 30
+
+    (9) function_declaration -> FUNCTION ID LPAREN . parameters RPAREN LBRACE statement_list RBRACE
+    (10) parameters -> . ID
+    (11) parameters -> . parameters COMMA ID
+    (12) parameters -> . empty
+    (13) empty -> .
+
+    ID              shift and go to state 34
+    RPAREN          reduce using rule 13 (empty -> .)
+    COMMA           reduce using rule 13 (empty -> .)
+
+    parameters                     shift and go to state 35
+    empty                          shift and go to state 36
+
+state 31
+
+    (20) expression -> LPAREN expression RPAREN .
+
+    SEMICOLON       reduce using rule 20 (expression -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 20 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 20 (expression -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 20 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 20 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 20 (expression -> LPAREN expression RPAREN .)
+
+
+state 32
+
+    (14) return_statement -> RETURN expression SEMICOLON .
+
+    VAR             reduce using rule 14 (return_statement -> RETURN expression SEMICOLON .)
+    FUNCTION        reduce using rule 14 (return_statement -> RETURN expression SEMICOLON .)
+    RETURN          reduce using rule 14 (return_statement -> RETURN expression SEMICOLON .)
+    LPAREN          reduce using rule 14 (return_statement -> RETURN expression SEMICOLON .)
+    NUMBER          reduce using rule 14 (return_statement -> RETURN expression SEMICOLON .)
+    ID              reduce using rule 14 (return_statement -> RETURN expression SEMICOLON .)
+    $end            reduce using rule 14 (return_statement -> RETURN expression SEMICOLON .)
+    RBRACE          reduce using rule 14 (return_statement -> RETURN expression SEMICOLON .)
+
+
+state 33
+
+    (8) var_declaration -> VAR ID ASSIGN expression . SEMICOLON
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+
+    SEMICOLON       shift and go to state 37
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 19
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+
+
+state 34
+
+    (10) parameters -> ID .
+
+    RPAREN          reduce using rule 10 (parameters -> ID .)
+    COMMA           reduce using rule 10 (parameters -> ID .)
+
+
+state 35
+
+    (9) function_declaration -> FUNCTION ID LPAREN parameters . RPAREN LBRACE statement_list RBRACE
+    (11) parameters -> parameters . COMMA ID
+
+    RPAREN          shift and go to state 38
+    COMMA           shift and go to state 39
+
+
+state 36
+
+    (12) parameters -> empty .
+
+    RPAREN          reduce using rule 12 (parameters -> empty .)
+    COMMA           reduce using rule 12 (parameters -> empty .)
+
+
+state 37
+
+    (8) var_declaration -> VAR ID ASSIGN expression SEMICOLON .
+
+    VAR             reduce using rule 8 (var_declaration -> VAR ID ASSIGN expression SEMICOLON .)
+    FUNCTION        reduce using rule 8 (var_declaration -> VAR ID ASSIGN expression SEMICOLON .)
+    RETURN          reduce using rule 8 (var_declaration -> VAR ID ASSIGN expression SEMICOLON .)
+    LPAREN          reduce using rule 8 (var_declaration -> VAR ID ASSIGN expression SEMICOLON .)
+    NUMBER          reduce using rule 8 (var_declaration -> VAR ID ASSIGN expression SEMICOLON .)
+    ID              reduce using rule 8 (var_declaration -> VAR ID ASSIGN expression SEMICOLON .)
+    $end            reduce using rule 8 (var_declaration -> VAR ID ASSIGN expression SEMICOLON .)
+    RBRACE          reduce using rule 8 (var_declaration -> VAR ID ASSIGN expression SEMICOLON .)
+
+
+state 38
+
+    (9) function_declaration -> FUNCTION ID LPAREN parameters RPAREN . LBRACE statement_list RBRACE
+
+    LBRACE          shift and go to state 40
+
+
+state 39
+
+    (11) parameters -> parameters COMMA . ID
+
+    ID              shift and go to state 41
+
+
+state 40
+
+    (9) function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE . statement_list RBRACE
+    (2) statement_list -> . statement
+    (3) statement_list -> . statement_list statement
+    (4) statement -> . var_declaration
+    (5) statement -> . function_declaration
+    (6) statement -> . expression_statement
+    (7) statement -> . return_statement
+    (8) var_declaration -> . VAR ID ASSIGN expression SEMICOLON
+    (9) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE statement_list RBRACE
+    (15) expression_statement -> . expression SEMICOLON
+    (14) return_statement -> . RETURN expression SEMICOLON
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . LPAREN expression RPAREN
+    (21) expression -> . NUMBER
+    (22) expression -> . ID
+
+    VAR             shift and go to state 8
+    FUNCTION        shift and go to state 11
+    RETURN          shift and go to state 13
+    LPAREN          shift and go to state 12
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 9
+
+    statement_list                 shift and go to state 42
+    statement                      shift and go to state 3
+    var_declaration                shift and go to state 4
+    function_declaration           shift and go to state 5
+    expression_statement           shift and go to state 6
+    return_statement               shift and go to state 7
+    expression                     shift and go to state 10
+
+state 41
+
+    (11) parameters -> parameters COMMA ID .
+
+    RPAREN          reduce using rule 11 (parameters -> parameters COMMA ID .)
+    COMMA           reduce using rule 11 (parameters -> parameters COMMA ID .)
+
+
+state 42
+
+    (9) function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE statement_list . RBRACE
+    (3) statement_list -> statement_list . statement
+    (4) statement -> . var_declaration
+    (5) statement -> . function_declaration
+    (6) statement -> . expression_statement
+    (7) statement -> . return_statement
+    (8) var_declaration -> . VAR ID ASSIGN expression SEMICOLON
+    (9) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE statement_list RBRACE
+    (15) expression_statement -> . expression SEMICOLON
+    (14) return_statement -> . RETURN expression SEMICOLON
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . LPAREN expression RPAREN
+    (21) expression -> . NUMBER
+    (22) expression -> . ID
+
+    RBRACE          shift and go to state 43
+    VAR             shift and go to state 8
+    FUNCTION        shift and go to state 11
+    RETURN          shift and go to state 13
+    LPAREN          shift and go to state 12
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 9
+
+    statement                      shift and go to state 15
+    var_declaration                shift and go to state 4
+    function_declaration           shift and go to state 5
+    expression_statement           shift and go to state 6
+    return_statement               shift and go to state 7
+    expression                     shift and go to state 10
+
+state 43
+
+    (9) function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE statement_list RBRACE .
+
+    VAR             reduce using rule 9 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE statement_list RBRACE .)
+    FUNCTION        reduce using rule 9 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE statement_list RBRACE .)
+    RETURN          reduce using rule 9 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE statement_list RBRACE .)
+    LPAREN          reduce using rule 9 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE statement_list RBRACE .)
+    NUMBER          reduce using rule 9 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE statement_list RBRACE .)
+    ID              reduce using rule 9 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE statement_list RBRACE .)
+    $end            reduce using rule 9 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE statement_list RBRACE .)
+    RBRACE          reduce using rule 9 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE statement_list RBRACE .)
+

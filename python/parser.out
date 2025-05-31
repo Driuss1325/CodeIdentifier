@@ -1,0 +1,3209 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> stmt_list
+Rule 2     stmt_list -> stmt_list stmt
+Rule 3     stmt_list -> stmt
+Rule 4     stmt -> simple_stmt
+Rule 5     stmt -> compound_stmt
+Rule 6     compound_stmt -> if_stmt
+Rule 7     compound_stmt -> while_stmt
+Rule 8     compound_stmt -> print
+Rule 9     simple_stmt -> small_stmt SEMICOLON
+Rule 10    small_stmt -> test
+Rule 11    small_stmt -> flow_stmt
+Rule 12    print -> PRINT LPAREN small_stmt RPAREN SEMICOLON
+Rule 13    flow_stmt -> RETURN
+Rule 14    flow_stmt -> BREAK
+Rule 15    flow_stmt -> CONTINUE
+Rule 16    while_stmt -> WHILE test COLON suite
+Rule 17    while_stmt -> WHILE test COLON suite ELSE COLON suite
+Rule 18    if_stmt -> IF test COLON suite
+Rule 19    if_stmt -> IF test COLON suite ELSE COLON suite
+Rule 20    suite -> simple_stmt
+Rule 21    suite -> LBRACK stmt_list RBRACK
+Rule 22    test -> comparison OR test
+Rule 23    test -> comparison AND test
+Rule 24    test -> comparison
+Rule 25    comparison -> expr GT expr
+Rule 26    comparison -> expr LT expr
+Rule 27    comparison -> expr GTE expr
+Rule 28    comparison -> expr LTE expr
+Rule 29    comparison -> expr EQ expr
+Rule 30    comparison -> expr NEQ expr
+Rule 31    comparison -> expr
+Rule 32    expr -> NAME ASSIGN expr
+Rule 33    expr -> expr PLUS expr
+Rule 34    expr -> expr MINUS expr
+Rule 35    expr -> expr TIMES expr
+Rule 36    expr -> expr DIVIDE expr
+Rule 37    expr -> expr MOD expr
+Rule 38    expr -> factor
+Rule 39    factor -> PLUS factor
+Rule 40    factor -> MINUS factor
+Rule 41    factor -> atom_expr
+Rule 42    atom_expr -> atom
+Rule 43    atom -> LPAREN list_expr RPAREN
+Rule 44    atom -> LSQBRACK list_expr RSQBRACK
+Rule 45    atom -> name
+Rule 46    atom -> number
+Rule 47    atom -> string
+Rule 48    atom -> TRUE
+Rule 49    atom -> FALSE
+Rule 50    atom -> NONE
+Rule 51    list_expr -> list_expr COMMA atom_expr
+Rule 52    list_expr -> atom_expr
+Rule 53    name -> NAME
+Rule 54    number -> INT
+Rule 55    number -> FLOAT
+Rule 56    string -> STRING
+
+Terminals, with rules where they appear
+
+AND                  : 23
+ASSIGN               : 32
+BREAK                : 14
+COLON                : 16 17 17 18 19 19
+COMMA                : 51
+CONTINUE             : 15
+DIVIDE               : 36
+ELSE                 : 17 19
+EQ                   : 29
+FALSE                : 49
+FLOAT                : 55
+GT                   : 25
+GTE                  : 27
+IF                   : 18 19
+INT                  : 54
+LBRACK               : 21
+LPAREN               : 12 43
+LSQBRACK             : 44
+LT                   : 26
+LTE                  : 28
+MINUS                : 34 40
+MOD                  : 37
+NAME                 : 32 53
+NEQ                  : 30
+NONE                 : 50
+OR                   : 22
+PLUS                 : 33 39
+PRINT                : 12
+RBRACK               : 21
+RETURN               : 13
+RPAREN               : 12 43
+RSQBRACK             : 44
+SEMICOLON            : 9 12
+STRING               : 56
+TIMES                : 35
+TRUE                 : 48
+WHILE                : 16 17
+error                : 
+
+Nonterminals, with rules where they appear
+
+atom                 : 42
+atom_expr            : 41 51 52
+comparison           : 22 23 24
+compound_stmt        : 5
+expr                 : 25 25 26 26 27 27 28 28 29 29 30 30 31 32 33 33 34 34 35 35 36 36 37 37
+factor               : 38 39 40
+flow_stmt            : 11
+if_stmt              : 6
+list_expr            : 43 44 51
+name                 : 45
+number               : 46
+print                : 8
+program              : 0
+simple_stmt          : 4 20
+small_stmt           : 9 12
+stmt                 : 2 3
+stmt_list            : 1 2 21
+string               : 47
+suite                : 16 17 17 18 19 19
+test                 : 10 16 17 18 19 22 23
+while_stmt           : 7
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . stmt_list
+    (2) stmt_list -> . stmt_list stmt
+    (3) stmt_list -> . stmt
+    (4) stmt -> . simple_stmt
+    (5) stmt -> . compound_stmt
+    (9) simple_stmt -> . small_stmt SEMICOLON
+    (6) compound_stmt -> . if_stmt
+    (7) compound_stmt -> . while_stmt
+    (8) compound_stmt -> . print
+    (10) small_stmt -> . test
+    (11) small_stmt -> . flow_stmt
+    (18) if_stmt -> . IF test COLON suite
+    (19) if_stmt -> . IF test COLON suite ELSE COLON suite
+    (16) while_stmt -> . WHILE test COLON suite
+    (17) while_stmt -> . WHILE test COLON suite ELSE COLON suite
+    (12) print -> . PRINT LPAREN small_stmt RPAREN SEMICOLON
+    (22) test -> . comparison OR test
+    (23) test -> . comparison AND test
+    (24) test -> . comparison
+    (13) flow_stmt -> . RETURN
+    (14) flow_stmt -> . BREAK
+    (15) flow_stmt -> . CONTINUE
+    (25) comparison -> . expr GT expr
+    (26) comparison -> . expr LT expr
+    (27) comparison -> . expr GTE expr
+    (28) comparison -> . expr LTE expr
+    (29) comparison -> . expr EQ expr
+    (30) comparison -> . expr NEQ expr
+    (31) comparison -> . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    IF              shift and go to state 12
+    WHILE           shift and go to state 13
+    PRINT           shift and go to state 14
+    RETURN          shift and go to state 17
+    BREAK           shift and go to state 18
+    CONTINUE        shift and go to state 19
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    program                        shift and go to state 1
+    stmt_list                      shift and go to state 2
+    stmt                           shift and go to state 3
+    simple_stmt                    shift and go to state 4
+    compound_stmt                  shift and go to state 5
+    small_stmt                     shift and go to state 6
+    if_stmt                        shift and go to state 7
+    while_stmt                     shift and go to state 8
+    print                          shift and go to state 9
+    test                           shift and go to state 10
+    flow_stmt                      shift and go to state 11
+    comparison                     shift and go to state 16
+    expr                           shift and go to state 20
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> stmt_list .
+    (2) stmt_list -> stmt_list . stmt
+    (4) stmt -> . simple_stmt
+    (5) stmt -> . compound_stmt
+    (9) simple_stmt -> . small_stmt SEMICOLON
+    (6) compound_stmt -> . if_stmt
+    (7) compound_stmt -> . while_stmt
+    (8) compound_stmt -> . print
+    (10) small_stmt -> . test
+    (11) small_stmt -> . flow_stmt
+    (18) if_stmt -> . IF test COLON suite
+    (19) if_stmt -> . IF test COLON suite ELSE COLON suite
+    (16) while_stmt -> . WHILE test COLON suite
+    (17) while_stmt -> . WHILE test COLON suite ELSE COLON suite
+    (12) print -> . PRINT LPAREN small_stmt RPAREN SEMICOLON
+    (22) test -> . comparison OR test
+    (23) test -> . comparison AND test
+    (24) test -> . comparison
+    (13) flow_stmt -> . RETURN
+    (14) flow_stmt -> . BREAK
+    (15) flow_stmt -> . CONTINUE
+    (25) comparison -> . expr GT expr
+    (26) comparison -> . expr LT expr
+    (27) comparison -> . expr GTE expr
+    (28) comparison -> . expr LTE expr
+    (29) comparison -> . expr EQ expr
+    (30) comparison -> . expr NEQ expr
+    (31) comparison -> . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    $end            reduce using rule 1 (program -> stmt_list .)
+    IF              shift and go to state 12
+    WHILE           shift and go to state 13
+    PRINT           shift and go to state 14
+    RETURN          shift and go to state 17
+    BREAK           shift and go to state 18
+    CONTINUE        shift and go to state 19
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    stmt                           shift and go to state 37
+    simple_stmt                    shift and go to state 4
+    compound_stmt                  shift and go to state 5
+    small_stmt                     shift and go to state 6
+    if_stmt                        shift and go to state 7
+    while_stmt                     shift and go to state 8
+    print                          shift and go to state 9
+    test                           shift and go to state 10
+    flow_stmt                      shift and go to state 11
+    comparison                     shift and go to state 16
+    expr                           shift and go to state 20
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 3
+
+    (3) stmt_list -> stmt .
+
+    IF              reduce using rule 3 (stmt_list -> stmt .)
+    WHILE           reduce using rule 3 (stmt_list -> stmt .)
+    PRINT           reduce using rule 3 (stmt_list -> stmt .)
+    RETURN          reduce using rule 3 (stmt_list -> stmt .)
+    BREAK           reduce using rule 3 (stmt_list -> stmt .)
+    CONTINUE        reduce using rule 3 (stmt_list -> stmt .)
+    NAME            reduce using rule 3 (stmt_list -> stmt .)
+    PLUS            reduce using rule 3 (stmt_list -> stmt .)
+    MINUS           reduce using rule 3 (stmt_list -> stmt .)
+    LPAREN          reduce using rule 3 (stmt_list -> stmt .)
+    LSQBRACK        reduce using rule 3 (stmt_list -> stmt .)
+    TRUE            reduce using rule 3 (stmt_list -> stmt .)
+    FALSE           reduce using rule 3 (stmt_list -> stmt .)
+    NONE            reduce using rule 3 (stmt_list -> stmt .)
+    INT             reduce using rule 3 (stmt_list -> stmt .)
+    FLOAT           reduce using rule 3 (stmt_list -> stmt .)
+    STRING          reduce using rule 3 (stmt_list -> stmt .)
+    $end            reduce using rule 3 (stmt_list -> stmt .)
+    RBRACK          reduce using rule 3 (stmt_list -> stmt .)
+
+
+state 4
+
+    (4) stmt -> simple_stmt .
+
+    IF              reduce using rule 4 (stmt -> simple_stmt .)
+    WHILE           reduce using rule 4 (stmt -> simple_stmt .)
+    PRINT           reduce using rule 4 (stmt -> simple_stmt .)
+    RETURN          reduce using rule 4 (stmt -> simple_stmt .)
+    BREAK           reduce using rule 4 (stmt -> simple_stmt .)
+    CONTINUE        reduce using rule 4 (stmt -> simple_stmt .)
+    NAME            reduce using rule 4 (stmt -> simple_stmt .)
+    PLUS            reduce using rule 4 (stmt -> simple_stmt .)
+    MINUS           reduce using rule 4 (stmt -> simple_stmt .)
+    LPAREN          reduce using rule 4 (stmt -> simple_stmt .)
+    LSQBRACK        reduce using rule 4 (stmt -> simple_stmt .)
+    TRUE            reduce using rule 4 (stmt -> simple_stmt .)
+    FALSE           reduce using rule 4 (stmt -> simple_stmt .)
+    NONE            reduce using rule 4 (stmt -> simple_stmt .)
+    INT             reduce using rule 4 (stmt -> simple_stmt .)
+    FLOAT           reduce using rule 4 (stmt -> simple_stmt .)
+    STRING          reduce using rule 4 (stmt -> simple_stmt .)
+    $end            reduce using rule 4 (stmt -> simple_stmt .)
+    RBRACK          reduce using rule 4 (stmt -> simple_stmt .)
+
+
+state 5
+
+    (5) stmt -> compound_stmt .
+
+    IF              reduce using rule 5 (stmt -> compound_stmt .)
+    WHILE           reduce using rule 5 (stmt -> compound_stmt .)
+    PRINT           reduce using rule 5 (stmt -> compound_stmt .)
+    RETURN          reduce using rule 5 (stmt -> compound_stmt .)
+    BREAK           reduce using rule 5 (stmt -> compound_stmt .)
+    CONTINUE        reduce using rule 5 (stmt -> compound_stmt .)
+    NAME            reduce using rule 5 (stmt -> compound_stmt .)
+    PLUS            reduce using rule 5 (stmt -> compound_stmt .)
+    MINUS           reduce using rule 5 (stmt -> compound_stmt .)
+    LPAREN          reduce using rule 5 (stmt -> compound_stmt .)
+    LSQBRACK        reduce using rule 5 (stmt -> compound_stmt .)
+    TRUE            reduce using rule 5 (stmt -> compound_stmt .)
+    FALSE           reduce using rule 5 (stmt -> compound_stmt .)
+    NONE            reduce using rule 5 (stmt -> compound_stmt .)
+    INT             reduce using rule 5 (stmt -> compound_stmt .)
+    FLOAT           reduce using rule 5 (stmt -> compound_stmt .)
+    STRING          reduce using rule 5 (stmt -> compound_stmt .)
+    $end            reduce using rule 5 (stmt -> compound_stmt .)
+    RBRACK          reduce using rule 5 (stmt -> compound_stmt .)
+
+
+state 6
+
+    (9) simple_stmt -> small_stmt . SEMICOLON
+
+    SEMICOLON       shift and go to state 38
+
+
+state 7
+
+    (6) compound_stmt -> if_stmt .
+
+    IF              reduce using rule 6 (compound_stmt -> if_stmt .)
+    WHILE           reduce using rule 6 (compound_stmt -> if_stmt .)
+    PRINT           reduce using rule 6 (compound_stmt -> if_stmt .)
+    RETURN          reduce using rule 6 (compound_stmt -> if_stmt .)
+    BREAK           reduce using rule 6 (compound_stmt -> if_stmt .)
+    CONTINUE        reduce using rule 6 (compound_stmt -> if_stmt .)
+    NAME            reduce using rule 6 (compound_stmt -> if_stmt .)
+    PLUS            reduce using rule 6 (compound_stmt -> if_stmt .)
+    MINUS           reduce using rule 6 (compound_stmt -> if_stmt .)
+    LPAREN          reduce using rule 6 (compound_stmt -> if_stmt .)
+    LSQBRACK        reduce using rule 6 (compound_stmt -> if_stmt .)
+    TRUE            reduce using rule 6 (compound_stmt -> if_stmt .)
+    FALSE           reduce using rule 6 (compound_stmt -> if_stmt .)
+    NONE            reduce using rule 6 (compound_stmt -> if_stmt .)
+    INT             reduce using rule 6 (compound_stmt -> if_stmt .)
+    FLOAT           reduce using rule 6 (compound_stmt -> if_stmt .)
+    STRING          reduce using rule 6 (compound_stmt -> if_stmt .)
+    $end            reduce using rule 6 (compound_stmt -> if_stmt .)
+    RBRACK          reduce using rule 6 (compound_stmt -> if_stmt .)
+
+
+state 8
+
+    (7) compound_stmt -> while_stmt .
+
+    IF              reduce using rule 7 (compound_stmt -> while_stmt .)
+    WHILE           reduce using rule 7 (compound_stmt -> while_stmt .)
+    PRINT           reduce using rule 7 (compound_stmt -> while_stmt .)
+    RETURN          reduce using rule 7 (compound_stmt -> while_stmt .)
+    BREAK           reduce using rule 7 (compound_stmt -> while_stmt .)
+    CONTINUE        reduce using rule 7 (compound_stmt -> while_stmt .)
+    NAME            reduce using rule 7 (compound_stmt -> while_stmt .)
+    PLUS            reduce using rule 7 (compound_stmt -> while_stmt .)
+    MINUS           reduce using rule 7 (compound_stmt -> while_stmt .)
+    LPAREN          reduce using rule 7 (compound_stmt -> while_stmt .)
+    LSQBRACK        reduce using rule 7 (compound_stmt -> while_stmt .)
+    TRUE            reduce using rule 7 (compound_stmt -> while_stmt .)
+    FALSE           reduce using rule 7 (compound_stmt -> while_stmt .)
+    NONE            reduce using rule 7 (compound_stmt -> while_stmt .)
+    INT             reduce using rule 7 (compound_stmt -> while_stmt .)
+    FLOAT           reduce using rule 7 (compound_stmt -> while_stmt .)
+    STRING          reduce using rule 7 (compound_stmt -> while_stmt .)
+    $end            reduce using rule 7 (compound_stmt -> while_stmt .)
+    RBRACK          reduce using rule 7 (compound_stmt -> while_stmt .)
+
+
+state 9
+
+    (8) compound_stmt -> print .
+
+    IF              reduce using rule 8 (compound_stmt -> print .)
+    WHILE           reduce using rule 8 (compound_stmt -> print .)
+    PRINT           reduce using rule 8 (compound_stmt -> print .)
+    RETURN          reduce using rule 8 (compound_stmt -> print .)
+    BREAK           reduce using rule 8 (compound_stmt -> print .)
+    CONTINUE        reduce using rule 8 (compound_stmt -> print .)
+    NAME            reduce using rule 8 (compound_stmt -> print .)
+    PLUS            reduce using rule 8 (compound_stmt -> print .)
+    MINUS           reduce using rule 8 (compound_stmt -> print .)
+    LPAREN          reduce using rule 8 (compound_stmt -> print .)
+    LSQBRACK        reduce using rule 8 (compound_stmt -> print .)
+    TRUE            reduce using rule 8 (compound_stmt -> print .)
+    FALSE           reduce using rule 8 (compound_stmt -> print .)
+    NONE            reduce using rule 8 (compound_stmt -> print .)
+    INT             reduce using rule 8 (compound_stmt -> print .)
+    FLOAT           reduce using rule 8 (compound_stmt -> print .)
+    STRING          reduce using rule 8 (compound_stmt -> print .)
+    $end            reduce using rule 8 (compound_stmt -> print .)
+    RBRACK          reduce using rule 8 (compound_stmt -> print .)
+
+
+state 10
+
+    (10) small_stmt -> test .
+
+    SEMICOLON       reduce using rule 10 (small_stmt -> test .)
+    RPAREN          reduce using rule 10 (small_stmt -> test .)
+
+
+state 11
+
+    (11) small_stmt -> flow_stmt .
+
+    SEMICOLON       reduce using rule 11 (small_stmt -> flow_stmt .)
+    RPAREN          reduce using rule 11 (small_stmt -> flow_stmt .)
+
+
+state 12
+
+    (18) if_stmt -> IF . test COLON suite
+    (19) if_stmt -> IF . test COLON suite ELSE COLON suite
+    (22) test -> . comparison OR test
+    (23) test -> . comparison AND test
+    (24) test -> . comparison
+    (25) comparison -> . expr GT expr
+    (26) comparison -> . expr LT expr
+    (27) comparison -> . expr GTE expr
+    (28) comparison -> . expr LTE expr
+    (29) comparison -> . expr EQ expr
+    (30) comparison -> . expr NEQ expr
+    (31) comparison -> . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    test                           shift and go to state 39
+    comparison                     shift and go to state 16
+    expr                           shift and go to state 20
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 13
+
+    (16) while_stmt -> WHILE . test COLON suite
+    (17) while_stmt -> WHILE . test COLON suite ELSE COLON suite
+    (22) test -> . comparison OR test
+    (23) test -> . comparison AND test
+    (24) test -> . comparison
+    (25) comparison -> . expr GT expr
+    (26) comparison -> . expr LT expr
+    (27) comparison -> . expr GTE expr
+    (28) comparison -> . expr LTE expr
+    (29) comparison -> . expr EQ expr
+    (30) comparison -> . expr NEQ expr
+    (31) comparison -> . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    test                           shift and go to state 40
+    comparison                     shift and go to state 16
+    expr                           shift and go to state 20
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 14
+
+    (12) print -> PRINT . LPAREN small_stmt RPAREN SEMICOLON
+
+    LPAREN          shift and go to state 41
+
+
+state 15
+
+    (43) atom -> LPAREN . list_expr RPAREN
+    (51) list_expr -> . list_expr COMMA atom_expr
+    (52) list_expr -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    NAME            shift and go to state 44
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    list_expr                      shift and go to state 42
+    atom_expr                      shift and go to state 43
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 16
+
+    (22) test -> comparison . OR test
+    (23) test -> comparison . AND test
+    (24) test -> comparison .
+
+    OR              shift and go to state 45
+    AND             shift and go to state 46
+    SEMICOLON       reduce using rule 24 (test -> comparison .)
+    COLON           reduce using rule 24 (test -> comparison .)
+    RPAREN          reduce using rule 24 (test -> comparison .)
+
+
+state 17
+
+    (13) flow_stmt -> RETURN .
+
+    SEMICOLON       reduce using rule 13 (flow_stmt -> RETURN .)
+    RPAREN          reduce using rule 13 (flow_stmt -> RETURN .)
+
+
+state 18
+
+    (14) flow_stmt -> BREAK .
+
+    SEMICOLON       reduce using rule 14 (flow_stmt -> BREAK .)
+    RPAREN          reduce using rule 14 (flow_stmt -> BREAK .)
+
+
+state 19
+
+    (15) flow_stmt -> CONTINUE .
+
+    SEMICOLON       reduce using rule 15 (flow_stmt -> CONTINUE .)
+    RPAREN          reduce using rule 15 (flow_stmt -> CONTINUE .)
+
+
+state 20
+
+    (25) comparison -> expr . GT expr
+    (26) comparison -> expr . LT expr
+    (27) comparison -> expr . GTE expr
+    (28) comparison -> expr . LTE expr
+    (29) comparison -> expr . EQ expr
+    (30) comparison -> expr . NEQ expr
+    (31) comparison -> expr .
+    (33) expr -> expr . PLUS expr
+    (34) expr -> expr . MINUS expr
+    (35) expr -> expr . TIMES expr
+    (36) expr -> expr . DIVIDE expr
+    (37) expr -> expr . MOD expr
+
+    GT              shift and go to state 47
+    LT              shift and go to state 48
+    GTE             shift and go to state 49
+    LTE             shift and go to state 50
+    EQ              shift and go to state 51
+    NEQ             shift and go to state 52
+    OR              reduce using rule 31 (comparison -> expr .)
+    AND             reduce using rule 31 (comparison -> expr .)
+    SEMICOLON       reduce using rule 31 (comparison -> expr .)
+    COLON           reduce using rule 31 (comparison -> expr .)
+    RPAREN          reduce using rule 31 (comparison -> expr .)
+    PLUS            shift and go to state 53
+    MINUS           shift and go to state 54
+    TIMES           shift and go to state 55
+    DIVIDE          shift and go to state 56
+    MOD             shift and go to state 57
+
+
+state 21
+
+    (32) expr -> NAME . ASSIGN expr
+    (53) name -> NAME .
+
+    ASSIGN          shift and go to state 58
+    GT              reduce using rule 53 (name -> NAME .)
+    LT              reduce using rule 53 (name -> NAME .)
+    GTE             reduce using rule 53 (name -> NAME .)
+    LTE             reduce using rule 53 (name -> NAME .)
+    EQ              reduce using rule 53 (name -> NAME .)
+    NEQ             reduce using rule 53 (name -> NAME .)
+    PLUS            reduce using rule 53 (name -> NAME .)
+    MINUS           reduce using rule 53 (name -> NAME .)
+    TIMES           reduce using rule 53 (name -> NAME .)
+    DIVIDE          reduce using rule 53 (name -> NAME .)
+    MOD             reduce using rule 53 (name -> NAME .)
+    OR              reduce using rule 53 (name -> NAME .)
+    AND             reduce using rule 53 (name -> NAME .)
+    SEMICOLON       reduce using rule 53 (name -> NAME .)
+    COLON           reduce using rule 53 (name -> NAME .)
+    RPAREN          reduce using rule 53 (name -> NAME .)
+
+
+state 22
+
+    (39) factor -> PLUS . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    NAME            shift and go to state 44
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    factor                         shift and go to state 59
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 23
+
+    (40) factor -> MINUS . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    NAME            shift and go to state 44
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    factor                         shift and go to state 60
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 24
+
+    (38) expr -> factor .
+
+    GT              reduce using rule 38 (expr -> factor .)
+    LT              reduce using rule 38 (expr -> factor .)
+    GTE             reduce using rule 38 (expr -> factor .)
+    LTE             reduce using rule 38 (expr -> factor .)
+    EQ              reduce using rule 38 (expr -> factor .)
+    NEQ             reduce using rule 38 (expr -> factor .)
+    PLUS            reduce using rule 38 (expr -> factor .)
+    MINUS           reduce using rule 38 (expr -> factor .)
+    TIMES           reduce using rule 38 (expr -> factor .)
+    DIVIDE          reduce using rule 38 (expr -> factor .)
+    MOD             reduce using rule 38 (expr -> factor .)
+    OR              reduce using rule 38 (expr -> factor .)
+    AND             reduce using rule 38 (expr -> factor .)
+    SEMICOLON       reduce using rule 38 (expr -> factor .)
+    COLON           reduce using rule 38 (expr -> factor .)
+    RPAREN          reduce using rule 38 (expr -> factor .)
+
+
+state 25
+
+    (41) factor -> atom_expr .
+
+    GT              reduce using rule 41 (factor -> atom_expr .)
+    LT              reduce using rule 41 (factor -> atom_expr .)
+    GTE             reduce using rule 41 (factor -> atom_expr .)
+    LTE             reduce using rule 41 (factor -> atom_expr .)
+    EQ              reduce using rule 41 (factor -> atom_expr .)
+    NEQ             reduce using rule 41 (factor -> atom_expr .)
+    PLUS            reduce using rule 41 (factor -> atom_expr .)
+    MINUS           reduce using rule 41 (factor -> atom_expr .)
+    TIMES           reduce using rule 41 (factor -> atom_expr .)
+    DIVIDE          reduce using rule 41 (factor -> atom_expr .)
+    MOD             reduce using rule 41 (factor -> atom_expr .)
+    OR              reduce using rule 41 (factor -> atom_expr .)
+    AND             reduce using rule 41 (factor -> atom_expr .)
+    SEMICOLON       reduce using rule 41 (factor -> atom_expr .)
+    COLON           reduce using rule 41 (factor -> atom_expr .)
+    RPAREN          reduce using rule 41 (factor -> atom_expr .)
+
+
+state 26
+
+    (42) atom_expr -> atom .
+
+    GT              reduce using rule 42 (atom_expr -> atom .)
+    LT              reduce using rule 42 (atom_expr -> atom .)
+    GTE             reduce using rule 42 (atom_expr -> atom .)
+    LTE             reduce using rule 42 (atom_expr -> atom .)
+    EQ              reduce using rule 42 (atom_expr -> atom .)
+    NEQ             reduce using rule 42 (atom_expr -> atom .)
+    PLUS            reduce using rule 42 (atom_expr -> atom .)
+    MINUS           reduce using rule 42 (atom_expr -> atom .)
+    TIMES           reduce using rule 42 (atom_expr -> atom .)
+    DIVIDE          reduce using rule 42 (atom_expr -> atom .)
+    MOD             reduce using rule 42 (atom_expr -> atom .)
+    OR              reduce using rule 42 (atom_expr -> atom .)
+    AND             reduce using rule 42 (atom_expr -> atom .)
+    SEMICOLON       reduce using rule 42 (atom_expr -> atom .)
+    COLON           reduce using rule 42 (atom_expr -> atom .)
+    RPAREN          reduce using rule 42 (atom_expr -> atom .)
+    COMMA           reduce using rule 42 (atom_expr -> atom .)
+    RSQBRACK        reduce using rule 42 (atom_expr -> atom .)
+
+
+state 27
+
+    (44) atom -> LSQBRACK . list_expr RSQBRACK
+    (51) list_expr -> . list_expr COMMA atom_expr
+    (52) list_expr -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    NAME            shift and go to state 44
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    list_expr                      shift and go to state 61
+    atom_expr                      shift and go to state 43
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 28
+
+    (45) atom -> name .
+
+    GT              reduce using rule 45 (atom -> name .)
+    LT              reduce using rule 45 (atom -> name .)
+    GTE             reduce using rule 45 (atom -> name .)
+    LTE             reduce using rule 45 (atom -> name .)
+    EQ              reduce using rule 45 (atom -> name .)
+    NEQ             reduce using rule 45 (atom -> name .)
+    PLUS            reduce using rule 45 (atom -> name .)
+    MINUS           reduce using rule 45 (atom -> name .)
+    TIMES           reduce using rule 45 (atom -> name .)
+    DIVIDE          reduce using rule 45 (atom -> name .)
+    MOD             reduce using rule 45 (atom -> name .)
+    OR              reduce using rule 45 (atom -> name .)
+    AND             reduce using rule 45 (atom -> name .)
+    SEMICOLON       reduce using rule 45 (atom -> name .)
+    COLON           reduce using rule 45 (atom -> name .)
+    RPAREN          reduce using rule 45 (atom -> name .)
+    COMMA           reduce using rule 45 (atom -> name .)
+    RSQBRACK        reduce using rule 45 (atom -> name .)
+
+
+state 29
+
+    (46) atom -> number .
+
+    GT              reduce using rule 46 (atom -> number .)
+    LT              reduce using rule 46 (atom -> number .)
+    GTE             reduce using rule 46 (atom -> number .)
+    LTE             reduce using rule 46 (atom -> number .)
+    EQ              reduce using rule 46 (atom -> number .)
+    NEQ             reduce using rule 46 (atom -> number .)
+    PLUS            reduce using rule 46 (atom -> number .)
+    MINUS           reduce using rule 46 (atom -> number .)
+    TIMES           reduce using rule 46 (atom -> number .)
+    DIVIDE          reduce using rule 46 (atom -> number .)
+    MOD             reduce using rule 46 (atom -> number .)
+    OR              reduce using rule 46 (atom -> number .)
+    AND             reduce using rule 46 (atom -> number .)
+    SEMICOLON       reduce using rule 46 (atom -> number .)
+    COLON           reduce using rule 46 (atom -> number .)
+    RPAREN          reduce using rule 46 (atom -> number .)
+    COMMA           reduce using rule 46 (atom -> number .)
+    RSQBRACK        reduce using rule 46 (atom -> number .)
+
+
+state 30
+
+    (47) atom -> string .
+
+    GT              reduce using rule 47 (atom -> string .)
+    LT              reduce using rule 47 (atom -> string .)
+    GTE             reduce using rule 47 (atom -> string .)
+    LTE             reduce using rule 47 (atom -> string .)
+    EQ              reduce using rule 47 (atom -> string .)
+    NEQ             reduce using rule 47 (atom -> string .)
+    PLUS            reduce using rule 47 (atom -> string .)
+    MINUS           reduce using rule 47 (atom -> string .)
+    TIMES           reduce using rule 47 (atom -> string .)
+    DIVIDE          reduce using rule 47 (atom -> string .)
+    MOD             reduce using rule 47 (atom -> string .)
+    OR              reduce using rule 47 (atom -> string .)
+    AND             reduce using rule 47 (atom -> string .)
+    SEMICOLON       reduce using rule 47 (atom -> string .)
+    COLON           reduce using rule 47 (atom -> string .)
+    RPAREN          reduce using rule 47 (atom -> string .)
+    COMMA           reduce using rule 47 (atom -> string .)
+    RSQBRACK        reduce using rule 47 (atom -> string .)
+
+
+state 31
+
+    (48) atom -> TRUE .
+
+    GT              reduce using rule 48 (atom -> TRUE .)
+    LT              reduce using rule 48 (atom -> TRUE .)
+    GTE             reduce using rule 48 (atom -> TRUE .)
+    LTE             reduce using rule 48 (atom -> TRUE .)
+    EQ              reduce using rule 48 (atom -> TRUE .)
+    NEQ             reduce using rule 48 (atom -> TRUE .)
+    PLUS            reduce using rule 48 (atom -> TRUE .)
+    MINUS           reduce using rule 48 (atom -> TRUE .)
+    TIMES           reduce using rule 48 (atom -> TRUE .)
+    DIVIDE          reduce using rule 48 (atom -> TRUE .)
+    MOD             reduce using rule 48 (atom -> TRUE .)
+    OR              reduce using rule 48 (atom -> TRUE .)
+    AND             reduce using rule 48 (atom -> TRUE .)
+    SEMICOLON       reduce using rule 48 (atom -> TRUE .)
+    COLON           reduce using rule 48 (atom -> TRUE .)
+    RPAREN          reduce using rule 48 (atom -> TRUE .)
+    COMMA           reduce using rule 48 (atom -> TRUE .)
+    RSQBRACK        reduce using rule 48 (atom -> TRUE .)
+
+
+state 32
+
+    (49) atom -> FALSE .
+
+    GT              reduce using rule 49 (atom -> FALSE .)
+    LT              reduce using rule 49 (atom -> FALSE .)
+    GTE             reduce using rule 49 (atom -> FALSE .)
+    LTE             reduce using rule 49 (atom -> FALSE .)
+    EQ              reduce using rule 49 (atom -> FALSE .)
+    NEQ             reduce using rule 49 (atom -> FALSE .)
+    PLUS            reduce using rule 49 (atom -> FALSE .)
+    MINUS           reduce using rule 49 (atom -> FALSE .)
+    TIMES           reduce using rule 49 (atom -> FALSE .)
+    DIVIDE          reduce using rule 49 (atom -> FALSE .)
+    MOD             reduce using rule 49 (atom -> FALSE .)
+    OR              reduce using rule 49 (atom -> FALSE .)
+    AND             reduce using rule 49 (atom -> FALSE .)
+    SEMICOLON       reduce using rule 49 (atom -> FALSE .)
+    COLON           reduce using rule 49 (atom -> FALSE .)
+    RPAREN          reduce using rule 49 (atom -> FALSE .)
+    COMMA           reduce using rule 49 (atom -> FALSE .)
+    RSQBRACK        reduce using rule 49 (atom -> FALSE .)
+
+
+state 33
+
+    (50) atom -> NONE .
+
+    GT              reduce using rule 50 (atom -> NONE .)
+    LT              reduce using rule 50 (atom -> NONE .)
+    GTE             reduce using rule 50 (atom -> NONE .)
+    LTE             reduce using rule 50 (atom -> NONE .)
+    EQ              reduce using rule 50 (atom -> NONE .)
+    NEQ             reduce using rule 50 (atom -> NONE .)
+    PLUS            reduce using rule 50 (atom -> NONE .)
+    MINUS           reduce using rule 50 (atom -> NONE .)
+    TIMES           reduce using rule 50 (atom -> NONE .)
+    DIVIDE          reduce using rule 50 (atom -> NONE .)
+    MOD             reduce using rule 50 (atom -> NONE .)
+    OR              reduce using rule 50 (atom -> NONE .)
+    AND             reduce using rule 50 (atom -> NONE .)
+    SEMICOLON       reduce using rule 50 (atom -> NONE .)
+    COLON           reduce using rule 50 (atom -> NONE .)
+    RPAREN          reduce using rule 50 (atom -> NONE .)
+    COMMA           reduce using rule 50 (atom -> NONE .)
+    RSQBRACK        reduce using rule 50 (atom -> NONE .)
+
+
+state 34
+
+    (54) number -> INT .
+
+    GT              reduce using rule 54 (number -> INT .)
+    LT              reduce using rule 54 (number -> INT .)
+    GTE             reduce using rule 54 (number -> INT .)
+    LTE             reduce using rule 54 (number -> INT .)
+    EQ              reduce using rule 54 (number -> INT .)
+    NEQ             reduce using rule 54 (number -> INT .)
+    PLUS            reduce using rule 54 (number -> INT .)
+    MINUS           reduce using rule 54 (number -> INT .)
+    TIMES           reduce using rule 54 (number -> INT .)
+    DIVIDE          reduce using rule 54 (number -> INT .)
+    MOD             reduce using rule 54 (number -> INT .)
+    OR              reduce using rule 54 (number -> INT .)
+    AND             reduce using rule 54 (number -> INT .)
+    SEMICOLON       reduce using rule 54 (number -> INT .)
+    COLON           reduce using rule 54 (number -> INT .)
+    RPAREN          reduce using rule 54 (number -> INT .)
+    COMMA           reduce using rule 54 (number -> INT .)
+    RSQBRACK        reduce using rule 54 (number -> INT .)
+
+
+state 35
+
+    (55) number -> FLOAT .
+
+    GT              reduce using rule 55 (number -> FLOAT .)
+    LT              reduce using rule 55 (number -> FLOAT .)
+    GTE             reduce using rule 55 (number -> FLOAT .)
+    LTE             reduce using rule 55 (number -> FLOAT .)
+    EQ              reduce using rule 55 (number -> FLOAT .)
+    NEQ             reduce using rule 55 (number -> FLOAT .)
+    PLUS            reduce using rule 55 (number -> FLOAT .)
+    MINUS           reduce using rule 55 (number -> FLOAT .)
+    TIMES           reduce using rule 55 (number -> FLOAT .)
+    DIVIDE          reduce using rule 55 (number -> FLOAT .)
+    MOD             reduce using rule 55 (number -> FLOAT .)
+    OR              reduce using rule 55 (number -> FLOAT .)
+    AND             reduce using rule 55 (number -> FLOAT .)
+    SEMICOLON       reduce using rule 55 (number -> FLOAT .)
+    COLON           reduce using rule 55 (number -> FLOAT .)
+    RPAREN          reduce using rule 55 (number -> FLOAT .)
+    COMMA           reduce using rule 55 (number -> FLOAT .)
+    RSQBRACK        reduce using rule 55 (number -> FLOAT .)
+
+
+state 36
+
+    (56) string -> STRING .
+
+    GT              reduce using rule 56 (string -> STRING .)
+    LT              reduce using rule 56 (string -> STRING .)
+    GTE             reduce using rule 56 (string -> STRING .)
+    LTE             reduce using rule 56 (string -> STRING .)
+    EQ              reduce using rule 56 (string -> STRING .)
+    NEQ             reduce using rule 56 (string -> STRING .)
+    PLUS            reduce using rule 56 (string -> STRING .)
+    MINUS           reduce using rule 56 (string -> STRING .)
+    TIMES           reduce using rule 56 (string -> STRING .)
+    DIVIDE          reduce using rule 56 (string -> STRING .)
+    MOD             reduce using rule 56 (string -> STRING .)
+    OR              reduce using rule 56 (string -> STRING .)
+    AND             reduce using rule 56 (string -> STRING .)
+    SEMICOLON       reduce using rule 56 (string -> STRING .)
+    COLON           reduce using rule 56 (string -> STRING .)
+    RPAREN          reduce using rule 56 (string -> STRING .)
+    COMMA           reduce using rule 56 (string -> STRING .)
+    RSQBRACK        reduce using rule 56 (string -> STRING .)
+
+
+state 37
+
+    (2) stmt_list -> stmt_list stmt .
+
+    IF              reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    WHILE           reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    PRINT           reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    RETURN          reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    BREAK           reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    CONTINUE        reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    NAME            reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    PLUS            reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    MINUS           reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    LPAREN          reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    LSQBRACK        reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    TRUE            reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    FALSE           reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    NONE            reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    INT             reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    FLOAT           reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    STRING          reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    $end            reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    RBRACK          reduce using rule 2 (stmt_list -> stmt_list stmt .)
+
+
+state 38
+
+    (9) simple_stmt -> small_stmt SEMICOLON .
+
+    IF              reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    WHILE           reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    PRINT           reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    RETURN          reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    BREAK           reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    CONTINUE        reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    NAME            reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    PLUS            reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    MINUS           reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    LPAREN          reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    LSQBRACK        reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    TRUE            reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    FALSE           reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    NONE            reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    INT             reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    FLOAT           reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    STRING          reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    $end            reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    ELSE            reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+    RBRACK          reduce using rule 9 (simple_stmt -> small_stmt SEMICOLON .)
+
+
+state 39
+
+    (18) if_stmt -> IF test . COLON suite
+    (19) if_stmt -> IF test . COLON suite ELSE COLON suite
+
+    COLON           shift and go to state 62
+
+
+state 40
+
+    (16) while_stmt -> WHILE test . COLON suite
+    (17) while_stmt -> WHILE test . COLON suite ELSE COLON suite
+
+    COLON           shift and go to state 63
+
+
+state 41
+
+    (12) print -> PRINT LPAREN . small_stmt RPAREN SEMICOLON
+    (10) small_stmt -> . test
+    (11) small_stmt -> . flow_stmt
+    (22) test -> . comparison OR test
+    (23) test -> . comparison AND test
+    (24) test -> . comparison
+    (13) flow_stmt -> . RETURN
+    (14) flow_stmt -> . BREAK
+    (15) flow_stmt -> . CONTINUE
+    (25) comparison -> . expr GT expr
+    (26) comparison -> . expr LT expr
+    (27) comparison -> . expr GTE expr
+    (28) comparison -> . expr LTE expr
+    (29) comparison -> . expr EQ expr
+    (30) comparison -> . expr NEQ expr
+    (31) comparison -> . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    RETURN          shift and go to state 17
+    BREAK           shift and go to state 18
+    CONTINUE        shift and go to state 19
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    small_stmt                     shift and go to state 64
+    test                           shift and go to state 10
+    flow_stmt                      shift and go to state 11
+    comparison                     shift and go to state 16
+    expr                           shift and go to state 20
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 42
+
+    (43) atom -> LPAREN list_expr . RPAREN
+    (51) list_expr -> list_expr . COMMA atom_expr
+
+    RPAREN          shift and go to state 65
+    COMMA           shift and go to state 66
+
+
+state 43
+
+    (52) list_expr -> atom_expr .
+
+    RPAREN          reduce using rule 52 (list_expr -> atom_expr .)
+    COMMA           reduce using rule 52 (list_expr -> atom_expr .)
+    RSQBRACK        reduce using rule 52 (list_expr -> atom_expr .)
+
+
+state 44
+
+    (53) name -> NAME .
+
+    RPAREN          reduce using rule 53 (name -> NAME .)
+    COMMA           reduce using rule 53 (name -> NAME .)
+    GT              reduce using rule 53 (name -> NAME .)
+    LT              reduce using rule 53 (name -> NAME .)
+    GTE             reduce using rule 53 (name -> NAME .)
+    LTE             reduce using rule 53 (name -> NAME .)
+    EQ              reduce using rule 53 (name -> NAME .)
+    NEQ             reduce using rule 53 (name -> NAME .)
+    PLUS            reduce using rule 53 (name -> NAME .)
+    MINUS           reduce using rule 53 (name -> NAME .)
+    TIMES           reduce using rule 53 (name -> NAME .)
+    DIVIDE          reduce using rule 53 (name -> NAME .)
+    MOD             reduce using rule 53 (name -> NAME .)
+    OR              reduce using rule 53 (name -> NAME .)
+    AND             reduce using rule 53 (name -> NAME .)
+    SEMICOLON       reduce using rule 53 (name -> NAME .)
+    COLON           reduce using rule 53 (name -> NAME .)
+    RSQBRACK        reduce using rule 53 (name -> NAME .)
+
+
+state 45
+
+    (22) test -> comparison OR . test
+    (22) test -> . comparison OR test
+    (23) test -> . comparison AND test
+    (24) test -> . comparison
+    (25) comparison -> . expr GT expr
+    (26) comparison -> . expr LT expr
+    (27) comparison -> . expr GTE expr
+    (28) comparison -> . expr LTE expr
+    (29) comparison -> . expr EQ expr
+    (30) comparison -> . expr NEQ expr
+    (31) comparison -> . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    comparison                     shift and go to state 16
+    test                           shift and go to state 67
+    expr                           shift and go to state 20
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 46
+
+    (23) test -> comparison AND . test
+    (22) test -> . comparison OR test
+    (23) test -> . comparison AND test
+    (24) test -> . comparison
+    (25) comparison -> . expr GT expr
+    (26) comparison -> . expr LT expr
+    (27) comparison -> . expr GTE expr
+    (28) comparison -> . expr LTE expr
+    (29) comparison -> . expr EQ expr
+    (30) comparison -> . expr NEQ expr
+    (31) comparison -> . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    comparison                     shift and go to state 16
+    test                           shift and go to state 68
+    expr                           shift and go to state 20
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 47
+
+    (25) comparison -> expr GT . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    expr                           shift and go to state 69
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 48
+
+    (26) comparison -> expr LT . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    expr                           shift and go to state 70
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 49
+
+    (27) comparison -> expr GTE . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    expr                           shift and go to state 71
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 50
+
+    (28) comparison -> expr LTE . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    expr                           shift and go to state 72
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 51
+
+    (29) comparison -> expr EQ . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    expr                           shift and go to state 73
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 52
+
+    (30) comparison -> expr NEQ . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    expr                           shift and go to state 74
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 53
+
+    (33) expr -> expr PLUS . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    expr                           shift and go to state 75
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 54
+
+    (34) expr -> expr MINUS . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    expr                           shift and go to state 76
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 55
+
+    (35) expr -> expr TIMES . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    expr                           shift and go to state 77
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 56
+
+    (36) expr -> expr DIVIDE . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    expr                           shift and go to state 78
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 57
+
+    (37) expr -> expr MOD . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    expr                           shift and go to state 79
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 58
+
+    (32) expr -> NAME ASSIGN . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    expr                           shift and go to state 80
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 59
+
+    (39) factor -> PLUS factor .
+
+    GT              reduce using rule 39 (factor -> PLUS factor .)
+    LT              reduce using rule 39 (factor -> PLUS factor .)
+    GTE             reduce using rule 39 (factor -> PLUS factor .)
+    LTE             reduce using rule 39 (factor -> PLUS factor .)
+    EQ              reduce using rule 39 (factor -> PLUS factor .)
+    NEQ             reduce using rule 39 (factor -> PLUS factor .)
+    PLUS            reduce using rule 39 (factor -> PLUS factor .)
+    MINUS           reduce using rule 39 (factor -> PLUS factor .)
+    TIMES           reduce using rule 39 (factor -> PLUS factor .)
+    DIVIDE          reduce using rule 39 (factor -> PLUS factor .)
+    MOD             reduce using rule 39 (factor -> PLUS factor .)
+    OR              reduce using rule 39 (factor -> PLUS factor .)
+    AND             reduce using rule 39 (factor -> PLUS factor .)
+    SEMICOLON       reduce using rule 39 (factor -> PLUS factor .)
+    COLON           reduce using rule 39 (factor -> PLUS factor .)
+    RPAREN          reduce using rule 39 (factor -> PLUS factor .)
+
+
+state 60
+
+    (40) factor -> MINUS factor .
+
+    GT              reduce using rule 40 (factor -> MINUS factor .)
+    LT              reduce using rule 40 (factor -> MINUS factor .)
+    GTE             reduce using rule 40 (factor -> MINUS factor .)
+    LTE             reduce using rule 40 (factor -> MINUS factor .)
+    EQ              reduce using rule 40 (factor -> MINUS factor .)
+    NEQ             reduce using rule 40 (factor -> MINUS factor .)
+    PLUS            reduce using rule 40 (factor -> MINUS factor .)
+    MINUS           reduce using rule 40 (factor -> MINUS factor .)
+    TIMES           reduce using rule 40 (factor -> MINUS factor .)
+    DIVIDE          reduce using rule 40 (factor -> MINUS factor .)
+    MOD             reduce using rule 40 (factor -> MINUS factor .)
+    OR              reduce using rule 40 (factor -> MINUS factor .)
+    AND             reduce using rule 40 (factor -> MINUS factor .)
+    SEMICOLON       reduce using rule 40 (factor -> MINUS factor .)
+    COLON           reduce using rule 40 (factor -> MINUS factor .)
+    RPAREN          reduce using rule 40 (factor -> MINUS factor .)
+
+
+state 61
+
+    (44) atom -> LSQBRACK list_expr . RSQBRACK
+    (51) list_expr -> list_expr . COMMA atom_expr
+
+    RSQBRACK        shift and go to state 81
+    COMMA           shift and go to state 66
+
+
+state 62
+
+    (18) if_stmt -> IF test COLON . suite
+    (19) if_stmt -> IF test COLON . suite ELSE COLON suite
+    (20) suite -> . simple_stmt
+    (21) suite -> . LBRACK stmt_list RBRACK
+    (9) simple_stmt -> . small_stmt SEMICOLON
+    (10) small_stmt -> . test
+    (11) small_stmt -> . flow_stmt
+    (22) test -> . comparison OR test
+    (23) test -> . comparison AND test
+    (24) test -> . comparison
+    (13) flow_stmt -> . RETURN
+    (14) flow_stmt -> . BREAK
+    (15) flow_stmt -> . CONTINUE
+    (25) comparison -> . expr GT expr
+    (26) comparison -> . expr LT expr
+    (27) comparison -> . expr GTE expr
+    (28) comparison -> . expr LTE expr
+    (29) comparison -> . expr EQ expr
+    (30) comparison -> . expr NEQ expr
+    (31) comparison -> . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    LBRACK          shift and go to state 84
+    RETURN          shift and go to state 17
+    BREAK           shift and go to state 18
+    CONTINUE        shift and go to state 19
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    test                           shift and go to state 10
+    suite                          shift and go to state 82
+    simple_stmt                    shift and go to state 83
+    small_stmt                     shift and go to state 6
+    flow_stmt                      shift and go to state 11
+    comparison                     shift and go to state 16
+    expr                           shift and go to state 20
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 63
+
+    (16) while_stmt -> WHILE test COLON . suite
+    (17) while_stmt -> WHILE test COLON . suite ELSE COLON suite
+    (20) suite -> . simple_stmt
+    (21) suite -> . LBRACK stmt_list RBRACK
+    (9) simple_stmt -> . small_stmt SEMICOLON
+    (10) small_stmt -> . test
+    (11) small_stmt -> . flow_stmt
+    (22) test -> . comparison OR test
+    (23) test -> . comparison AND test
+    (24) test -> . comparison
+    (13) flow_stmt -> . RETURN
+    (14) flow_stmt -> . BREAK
+    (15) flow_stmt -> . CONTINUE
+    (25) comparison -> . expr GT expr
+    (26) comparison -> . expr LT expr
+    (27) comparison -> . expr GTE expr
+    (28) comparison -> . expr LTE expr
+    (29) comparison -> . expr EQ expr
+    (30) comparison -> . expr NEQ expr
+    (31) comparison -> . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    LBRACK          shift and go to state 84
+    RETURN          shift and go to state 17
+    BREAK           shift and go to state 18
+    CONTINUE        shift and go to state 19
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    test                           shift and go to state 10
+    suite                          shift and go to state 85
+    simple_stmt                    shift and go to state 83
+    small_stmt                     shift and go to state 6
+    flow_stmt                      shift and go to state 11
+    comparison                     shift and go to state 16
+    expr                           shift and go to state 20
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 64
+
+    (12) print -> PRINT LPAREN small_stmt . RPAREN SEMICOLON
+
+    RPAREN          shift and go to state 86
+
+
+state 65
+
+    (43) atom -> LPAREN list_expr RPAREN .
+
+    GT              reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    LT              reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    GTE             reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    LTE             reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    EQ              reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    NEQ             reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    PLUS            reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    MINUS           reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    TIMES           reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    DIVIDE          reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    MOD             reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    OR              reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    AND             reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    SEMICOLON       reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    COLON           reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    RPAREN          reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    COMMA           reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+    RSQBRACK        reduce using rule 43 (atom -> LPAREN list_expr RPAREN .)
+
+
+state 66
+
+    (51) list_expr -> list_expr COMMA . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    NAME            shift and go to state 44
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    atom_expr                      shift and go to state 87
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 67
+
+    (22) test -> comparison OR test .
+
+    SEMICOLON       reduce using rule 22 (test -> comparison OR test .)
+    COLON           reduce using rule 22 (test -> comparison OR test .)
+    RPAREN          reduce using rule 22 (test -> comparison OR test .)
+
+
+state 68
+
+    (23) test -> comparison AND test .
+
+    SEMICOLON       reduce using rule 23 (test -> comparison AND test .)
+    COLON           reduce using rule 23 (test -> comparison AND test .)
+    RPAREN          reduce using rule 23 (test -> comparison AND test .)
+
+
+state 69
+
+    (25) comparison -> expr GT expr .
+    (33) expr -> expr . PLUS expr
+    (34) expr -> expr . MINUS expr
+    (35) expr -> expr . TIMES expr
+    (36) expr -> expr . DIVIDE expr
+    (37) expr -> expr . MOD expr
+
+    OR              reduce using rule 25 (comparison -> expr GT expr .)
+    AND             reduce using rule 25 (comparison -> expr GT expr .)
+    SEMICOLON       reduce using rule 25 (comparison -> expr GT expr .)
+    COLON           reduce using rule 25 (comparison -> expr GT expr .)
+    RPAREN          reduce using rule 25 (comparison -> expr GT expr .)
+    PLUS            shift and go to state 53
+    MINUS           shift and go to state 54
+    TIMES           shift and go to state 55
+    DIVIDE          shift and go to state 56
+    MOD             shift and go to state 57
+
+
+state 70
+
+    (26) comparison -> expr LT expr .
+    (33) expr -> expr . PLUS expr
+    (34) expr -> expr . MINUS expr
+    (35) expr -> expr . TIMES expr
+    (36) expr -> expr . DIVIDE expr
+    (37) expr -> expr . MOD expr
+
+    OR              reduce using rule 26 (comparison -> expr LT expr .)
+    AND             reduce using rule 26 (comparison -> expr LT expr .)
+    SEMICOLON       reduce using rule 26 (comparison -> expr LT expr .)
+    COLON           reduce using rule 26 (comparison -> expr LT expr .)
+    RPAREN          reduce using rule 26 (comparison -> expr LT expr .)
+    PLUS            shift and go to state 53
+    MINUS           shift and go to state 54
+    TIMES           shift and go to state 55
+    DIVIDE          shift and go to state 56
+    MOD             shift and go to state 57
+
+
+state 71
+
+    (27) comparison -> expr GTE expr .
+    (33) expr -> expr . PLUS expr
+    (34) expr -> expr . MINUS expr
+    (35) expr -> expr . TIMES expr
+    (36) expr -> expr . DIVIDE expr
+    (37) expr -> expr . MOD expr
+
+    OR              reduce using rule 27 (comparison -> expr GTE expr .)
+    AND             reduce using rule 27 (comparison -> expr GTE expr .)
+    SEMICOLON       reduce using rule 27 (comparison -> expr GTE expr .)
+    COLON           reduce using rule 27 (comparison -> expr GTE expr .)
+    RPAREN          reduce using rule 27 (comparison -> expr GTE expr .)
+    PLUS            shift and go to state 53
+    MINUS           shift and go to state 54
+    TIMES           shift and go to state 55
+    DIVIDE          shift and go to state 56
+    MOD             shift and go to state 57
+
+
+state 72
+
+    (28) comparison -> expr LTE expr .
+    (33) expr -> expr . PLUS expr
+    (34) expr -> expr . MINUS expr
+    (35) expr -> expr . TIMES expr
+    (36) expr -> expr . DIVIDE expr
+    (37) expr -> expr . MOD expr
+
+    OR              reduce using rule 28 (comparison -> expr LTE expr .)
+    AND             reduce using rule 28 (comparison -> expr LTE expr .)
+    SEMICOLON       reduce using rule 28 (comparison -> expr LTE expr .)
+    COLON           reduce using rule 28 (comparison -> expr LTE expr .)
+    RPAREN          reduce using rule 28 (comparison -> expr LTE expr .)
+    PLUS            shift and go to state 53
+    MINUS           shift and go to state 54
+    TIMES           shift and go to state 55
+    DIVIDE          shift and go to state 56
+    MOD             shift and go to state 57
+
+
+state 73
+
+    (29) comparison -> expr EQ expr .
+    (33) expr -> expr . PLUS expr
+    (34) expr -> expr . MINUS expr
+    (35) expr -> expr . TIMES expr
+    (36) expr -> expr . DIVIDE expr
+    (37) expr -> expr . MOD expr
+
+    OR              reduce using rule 29 (comparison -> expr EQ expr .)
+    AND             reduce using rule 29 (comparison -> expr EQ expr .)
+    SEMICOLON       reduce using rule 29 (comparison -> expr EQ expr .)
+    COLON           reduce using rule 29 (comparison -> expr EQ expr .)
+    RPAREN          reduce using rule 29 (comparison -> expr EQ expr .)
+    PLUS            shift and go to state 53
+    MINUS           shift and go to state 54
+    TIMES           shift and go to state 55
+    DIVIDE          shift and go to state 56
+    MOD             shift and go to state 57
+
+
+state 74
+
+    (30) comparison -> expr NEQ expr .
+    (33) expr -> expr . PLUS expr
+    (34) expr -> expr . MINUS expr
+    (35) expr -> expr . TIMES expr
+    (36) expr -> expr . DIVIDE expr
+    (37) expr -> expr . MOD expr
+
+    OR              reduce using rule 30 (comparison -> expr NEQ expr .)
+    AND             reduce using rule 30 (comparison -> expr NEQ expr .)
+    SEMICOLON       reduce using rule 30 (comparison -> expr NEQ expr .)
+    COLON           reduce using rule 30 (comparison -> expr NEQ expr .)
+    RPAREN          reduce using rule 30 (comparison -> expr NEQ expr .)
+    PLUS            shift and go to state 53
+    MINUS           shift and go to state 54
+    TIMES           shift and go to state 55
+    DIVIDE          shift and go to state 56
+    MOD             shift and go to state 57
+
+
+state 75
+
+    (33) expr -> expr PLUS expr .
+    (33) expr -> expr . PLUS expr
+    (34) expr -> expr . MINUS expr
+    (35) expr -> expr . TIMES expr
+    (36) expr -> expr . DIVIDE expr
+    (37) expr -> expr . MOD expr
+
+    GT              reduce using rule 33 (expr -> expr PLUS expr .)
+    LT              reduce using rule 33 (expr -> expr PLUS expr .)
+    GTE             reduce using rule 33 (expr -> expr PLUS expr .)
+    LTE             reduce using rule 33 (expr -> expr PLUS expr .)
+    EQ              reduce using rule 33 (expr -> expr PLUS expr .)
+    NEQ             reduce using rule 33 (expr -> expr PLUS expr .)
+    PLUS            reduce using rule 33 (expr -> expr PLUS expr .)
+    MINUS           reduce using rule 33 (expr -> expr PLUS expr .)
+    MOD             reduce using rule 33 (expr -> expr PLUS expr .)
+    OR              reduce using rule 33 (expr -> expr PLUS expr .)
+    AND             reduce using rule 33 (expr -> expr PLUS expr .)
+    SEMICOLON       reduce using rule 33 (expr -> expr PLUS expr .)
+    COLON           reduce using rule 33 (expr -> expr PLUS expr .)
+    RPAREN          reduce using rule 33 (expr -> expr PLUS expr .)
+    TIMES           shift and go to state 55
+    DIVIDE          shift and go to state 56
+
+  ! TIMES           [ reduce using rule 33 (expr -> expr PLUS expr .) ]
+  ! DIVIDE          [ reduce using rule 33 (expr -> expr PLUS expr .) ]
+  ! PLUS            [ shift and go to state 53 ]
+  ! MINUS           [ shift and go to state 54 ]
+  ! MOD             [ shift and go to state 57 ]
+
+
+state 76
+
+    (34) expr -> expr MINUS expr .
+    (33) expr -> expr . PLUS expr
+    (34) expr -> expr . MINUS expr
+    (35) expr -> expr . TIMES expr
+    (36) expr -> expr . DIVIDE expr
+    (37) expr -> expr . MOD expr
+
+    GT              reduce using rule 34 (expr -> expr MINUS expr .)
+    LT              reduce using rule 34 (expr -> expr MINUS expr .)
+    GTE             reduce using rule 34 (expr -> expr MINUS expr .)
+    LTE             reduce using rule 34 (expr -> expr MINUS expr .)
+    EQ              reduce using rule 34 (expr -> expr MINUS expr .)
+    NEQ             reduce using rule 34 (expr -> expr MINUS expr .)
+    PLUS            reduce using rule 34 (expr -> expr MINUS expr .)
+    MINUS           reduce using rule 34 (expr -> expr MINUS expr .)
+    MOD             reduce using rule 34 (expr -> expr MINUS expr .)
+    OR              reduce using rule 34 (expr -> expr MINUS expr .)
+    AND             reduce using rule 34 (expr -> expr MINUS expr .)
+    SEMICOLON       reduce using rule 34 (expr -> expr MINUS expr .)
+    COLON           reduce using rule 34 (expr -> expr MINUS expr .)
+    RPAREN          reduce using rule 34 (expr -> expr MINUS expr .)
+    TIMES           shift and go to state 55
+    DIVIDE          shift and go to state 56
+
+  ! TIMES           [ reduce using rule 34 (expr -> expr MINUS expr .) ]
+  ! DIVIDE          [ reduce using rule 34 (expr -> expr MINUS expr .) ]
+  ! PLUS            [ shift and go to state 53 ]
+  ! MINUS           [ shift and go to state 54 ]
+  ! MOD             [ shift and go to state 57 ]
+
+
+state 77
+
+    (35) expr -> expr TIMES expr .
+    (33) expr -> expr . PLUS expr
+    (34) expr -> expr . MINUS expr
+    (35) expr -> expr . TIMES expr
+    (36) expr -> expr . DIVIDE expr
+    (37) expr -> expr . MOD expr
+
+    GT              reduce using rule 35 (expr -> expr TIMES expr .)
+    LT              reduce using rule 35 (expr -> expr TIMES expr .)
+    GTE             reduce using rule 35 (expr -> expr TIMES expr .)
+    LTE             reduce using rule 35 (expr -> expr TIMES expr .)
+    EQ              reduce using rule 35 (expr -> expr TIMES expr .)
+    NEQ             reduce using rule 35 (expr -> expr TIMES expr .)
+    PLUS            reduce using rule 35 (expr -> expr TIMES expr .)
+    MINUS           reduce using rule 35 (expr -> expr TIMES expr .)
+    TIMES           reduce using rule 35 (expr -> expr TIMES expr .)
+    DIVIDE          reduce using rule 35 (expr -> expr TIMES expr .)
+    MOD             reduce using rule 35 (expr -> expr TIMES expr .)
+    OR              reduce using rule 35 (expr -> expr TIMES expr .)
+    AND             reduce using rule 35 (expr -> expr TIMES expr .)
+    SEMICOLON       reduce using rule 35 (expr -> expr TIMES expr .)
+    COLON           reduce using rule 35 (expr -> expr TIMES expr .)
+    RPAREN          reduce using rule 35 (expr -> expr TIMES expr .)
+
+  ! PLUS            [ shift and go to state 53 ]
+  ! MINUS           [ shift and go to state 54 ]
+  ! TIMES           [ shift and go to state 55 ]
+  ! DIVIDE          [ shift and go to state 56 ]
+  ! MOD             [ shift and go to state 57 ]
+
+
+state 78
+
+    (36) expr -> expr DIVIDE expr .
+    (33) expr -> expr . PLUS expr
+    (34) expr -> expr . MINUS expr
+    (35) expr -> expr . TIMES expr
+    (36) expr -> expr . DIVIDE expr
+    (37) expr -> expr . MOD expr
+
+    GT              reduce using rule 36 (expr -> expr DIVIDE expr .)
+    LT              reduce using rule 36 (expr -> expr DIVIDE expr .)
+    GTE             reduce using rule 36 (expr -> expr DIVIDE expr .)
+    LTE             reduce using rule 36 (expr -> expr DIVIDE expr .)
+    EQ              reduce using rule 36 (expr -> expr DIVIDE expr .)
+    NEQ             reduce using rule 36 (expr -> expr DIVIDE expr .)
+    PLUS            reduce using rule 36 (expr -> expr DIVIDE expr .)
+    MINUS           reduce using rule 36 (expr -> expr DIVIDE expr .)
+    TIMES           reduce using rule 36 (expr -> expr DIVIDE expr .)
+    DIVIDE          reduce using rule 36 (expr -> expr DIVIDE expr .)
+    MOD             reduce using rule 36 (expr -> expr DIVIDE expr .)
+    OR              reduce using rule 36 (expr -> expr DIVIDE expr .)
+    AND             reduce using rule 36 (expr -> expr DIVIDE expr .)
+    SEMICOLON       reduce using rule 36 (expr -> expr DIVIDE expr .)
+    COLON           reduce using rule 36 (expr -> expr DIVIDE expr .)
+    RPAREN          reduce using rule 36 (expr -> expr DIVIDE expr .)
+
+  ! PLUS            [ shift and go to state 53 ]
+  ! MINUS           [ shift and go to state 54 ]
+  ! TIMES           [ shift and go to state 55 ]
+  ! DIVIDE          [ shift and go to state 56 ]
+  ! MOD             [ shift and go to state 57 ]
+
+
+state 79
+
+    (37) expr -> expr MOD expr .
+    (33) expr -> expr . PLUS expr
+    (34) expr -> expr . MINUS expr
+    (35) expr -> expr . TIMES expr
+    (36) expr -> expr . DIVIDE expr
+    (37) expr -> expr . MOD expr
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+    GT              reduce using rule 37 (expr -> expr MOD expr .)
+    LT              reduce using rule 37 (expr -> expr MOD expr .)
+    GTE             reduce using rule 37 (expr -> expr MOD expr .)
+    LTE             reduce using rule 37 (expr -> expr MOD expr .)
+    EQ              reduce using rule 37 (expr -> expr MOD expr .)
+    NEQ             reduce using rule 37 (expr -> expr MOD expr .)
+    OR              reduce using rule 37 (expr -> expr MOD expr .)
+    AND             reduce using rule 37 (expr -> expr MOD expr .)
+    SEMICOLON       reduce using rule 37 (expr -> expr MOD expr .)
+    COLON           reduce using rule 37 (expr -> expr MOD expr .)
+    RPAREN          reduce using rule 37 (expr -> expr MOD expr .)
+    PLUS            shift and go to state 53
+    MINUS           shift and go to state 54
+    TIMES           shift and go to state 55
+    DIVIDE          shift and go to state 56
+    MOD             shift and go to state 57
+
+  ! PLUS            [ reduce using rule 37 (expr -> expr MOD expr .) ]
+  ! MINUS           [ reduce using rule 37 (expr -> expr MOD expr .) ]
+  ! TIMES           [ reduce using rule 37 (expr -> expr MOD expr .) ]
+  ! DIVIDE          [ reduce using rule 37 (expr -> expr MOD expr .) ]
+  ! MOD             [ reduce using rule 37 (expr -> expr MOD expr .) ]
+
+
+state 80
+
+    (32) expr -> NAME ASSIGN expr .
+    (33) expr -> expr . PLUS expr
+    (34) expr -> expr . MINUS expr
+    (35) expr -> expr . TIMES expr
+    (36) expr -> expr . DIVIDE expr
+    (37) expr -> expr . MOD expr
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+    GT              reduce using rule 32 (expr -> NAME ASSIGN expr .)
+    LT              reduce using rule 32 (expr -> NAME ASSIGN expr .)
+    GTE             reduce using rule 32 (expr -> NAME ASSIGN expr .)
+    LTE             reduce using rule 32 (expr -> NAME ASSIGN expr .)
+    EQ              reduce using rule 32 (expr -> NAME ASSIGN expr .)
+    NEQ             reduce using rule 32 (expr -> NAME ASSIGN expr .)
+    OR              reduce using rule 32 (expr -> NAME ASSIGN expr .)
+    AND             reduce using rule 32 (expr -> NAME ASSIGN expr .)
+    SEMICOLON       reduce using rule 32 (expr -> NAME ASSIGN expr .)
+    COLON           reduce using rule 32 (expr -> NAME ASSIGN expr .)
+    RPAREN          reduce using rule 32 (expr -> NAME ASSIGN expr .)
+    PLUS            shift and go to state 53
+    MINUS           shift and go to state 54
+    TIMES           shift and go to state 55
+    DIVIDE          shift and go to state 56
+    MOD             shift and go to state 57
+
+  ! PLUS            [ reduce using rule 32 (expr -> NAME ASSIGN expr .) ]
+  ! MINUS           [ reduce using rule 32 (expr -> NAME ASSIGN expr .) ]
+  ! TIMES           [ reduce using rule 32 (expr -> NAME ASSIGN expr .) ]
+  ! DIVIDE          [ reduce using rule 32 (expr -> NAME ASSIGN expr .) ]
+  ! MOD             [ reduce using rule 32 (expr -> NAME ASSIGN expr .) ]
+
+
+state 81
+
+    (44) atom -> LSQBRACK list_expr RSQBRACK .
+
+    GT              reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    LT              reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    GTE             reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    LTE             reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    EQ              reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    NEQ             reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    PLUS            reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    MINUS           reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    TIMES           reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    DIVIDE          reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    MOD             reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    OR              reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    AND             reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    SEMICOLON       reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    COLON           reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    RPAREN          reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    COMMA           reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+    RSQBRACK        reduce using rule 44 (atom -> LSQBRACK list_expr RSQBRACK .)
+
+
+state 82
+
+    (18) if_stmt -> IF test COLON suite .
+    (19) if_stmt -> IF test COLON suite . ELSE COLON suite
+
+    IF              reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    WHILE           reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    PRINT           reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    RETURN          reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    BREAK           reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    CONTINUE        reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    NAME            reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    PLUS            reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    MINUS           reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    LPAREN          reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    LSQBRACK        reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    TRUE            reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    FALSE           reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    NONE            reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    INT             reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    FLOAT           reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    STRING          reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    $end            reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    RBRACK          reduce using rule 18 (if_stmt -> IF test COLON suite .)
+    ELSE            shift and go to state 88
+
+
+state 83
+
+    (20) suite -> simple_stmt .
+
+    ELSE            reduce using rule 20 (suite -> simple_stmt .)
+    IF              reduce using rule 20 (suite -> simple_stmt .)
+    WHILE           reduce using rule 20 (suite -> simple_stmt .)
+    PRINT           reduce using rule 20 (suite -> simple_stmt .)
+    RETURN          reduce using rule 20 (suite -> simple_stmt .)
+    BREAK           reduce using rule 20 (suite -> simple_stmt .)
+    CONTINUE        reduce using rule 20 (suite -> simple_stmt .)
+    NAME            reduce using rule 20 (suite -> simple_stmt .)
+    PLUS            reduce using rule 20 (suite -> simple_stmt .)
+    MINUS           reduce using rule 20 (suite -> simple_stmt .)
+    LPAREN          reduce using rule 20 (suite -> simple_stmt .)
+    LSQBRACK        reduce using rule 20 (suite -> simple_stmt .)
+    TRUE            reduce using rule 20 (suite -> simple_stmt .)
+    FALSE           reduce using rule 20 (suite -> simple_stmt .)
+    NONE            reduce using rule 20 (suite -> simple_stmt .)
+    INT             reduce using rule 20 (suite -> simple_stmt .)
+    FLOAT           reduce using rule 20 (suite -> simple_stmt .)
+    STRING          reduce using rule 20 (suite -> simple_stmt .)
+    $end            reduce using rule 20 (suite -> simple_stmt .)
+    RBRACK          reduce using rule 20 (suite -> simple_stmt .)
+
+
+state 84
+
+    (21) suite -> LBRACK . stmt_list RBRACK
+    (2) stmt_list -> . stmt_list stmt
+    (3) stmt_list -> . stmt
+    (4) stmt -> . simple_stmt
+    (5) stmt -> . compound_stmt
+    (9) simple_stmt -> . small_stmt SEMICOLON
+    (6) compound_stmt -> . if_stmt
+    (7) compound_stmt -> . while_stmt
+    (8) compound_stmt -> . print
+    (10) small_stmt -> . test
+    (11) small_stmt -> . flow_stmt
+    (18) if_stmt -> . IF test COLON suite
+    (19) if_stmt -> . IF test COLON suite ELSE COLON suite
+    (16) while_stmt -> . WHILE test COLON suite
+    (17) while_stmt -> . WHILE test COLON suite ELSE COLON suite
+    (12) print -> . PRINT LPAREN small_stmt RPAREN SEMICOLON
+    (22) test -> . comparison OR test
+    (23) test -> . comparison AND test
+    (24) test -> . comparison
+    (13) flow_stmt -> . RETURN
+    (14) flow_stmt -> . BREAK
+    (15) flow_stmt -> . CONTINUE
+    (25) comparison -> . expr GT expr
+    (26) comparison -> . expr LT expr
+    (27) comparison -> . expr GTE expr
+    (28) comparison -> . expr LTE expr
+    (29) comparison -> . expr EQ expr
+    (30) comparison -> . expr NEQ expr
+    (31) comparison -> . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    IF              shift and go to state 12
+    WHILE           shift and go to state 13
+    PRINT           shift and go to state 14
+    RETURN          shift and go to state 17
+    BREAK           shift and go to state 18
+    CONTINUE        shift and go to state 19
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    stmt_list                      shift and go to state 89
+    stmt                           shift and go to state 3
+    simple_stmt                    shift and go to state 4
+    compound_stmt                  shift and go to state 5
+    small_stmt                     shift and go to state 6
+    if_stmt                        shift and go to state 7
+    while_stmt                     shift and go to state 8
+    print                          shift and go to state 9
+    test                           shift and go to state 10
+    flow_stmt                      shift and go to state 11
+    comparison                     shift and go to state 16
+    expr                           shift and go to state 20
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 85
+
+    (16) while_stmt -> WHILE test COLON suite .
+    (17) while_stmt -> WHILE test COLON suite . ELSE COLON suite
+
+    IF              reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    WHILE           reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    PRINT           reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    RETURN          reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    BREAK           reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    CONTINUE        reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    NAME            reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    PLUS            reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    MINUS           reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    LPAREN          reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    LSQBRACK        reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    TRUE            reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    FALSE           reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    NONE            reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    INT             reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    FLOAT           reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    STRING          reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    $end            reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    RBRACK          reduce using rule 16 (while_stmt -> WHILE test COLON suite .)
+    ELSE            shift and go to state 90
+
+
+state 86
+
+    (12) print -> PRINT LPAREN small_stmt RPAREN . SEMICOLON
+
+    SEMICOLON       shift and go to state 91
+
+
+state 87
+
+    (51) list_expr -> list_expr COMMA atom_expr .
+
+    RPAREN          reduce using rule 51 (list_expr -> list_expr COMMA atom_expr .)
+    COMMA           reduce using rule 51 (list_expr -> list_expr COMMA atom_expr .)
+    RSQBRACK        reduce using rule 51 (list_expr -> list_expr COMMA atom_expr .)
+
+
+state 88
+
+    (19) if_stmt -> IF test COLON suite ELSE . COLON suite
+
+    COLON           shift and go to state 92
+
+
+state 89
+
+    (21) suite -> LBRACK stmt_list . RBRACK
+    (2) stmt_list -> stmt_list . stmt
+    (4) stmt -> . simple_stmt
+    (5) stmt -> . compound_stmt
+    (9) simple_stmt -> . small_stmt SEMICOLON
+    (6) compound_stmt -> . if_stmt
+    (7) compound_stmt -> . while_stmt
+    (8) compound_stmt -> . print
+    (10) small_stmt -> . test
+    (11) small_stmt -> . flow_stmt
+    (18) if_stmt -> . IF test COLON suite
+    (19) if_stmt -> . IF test COLON suite ELSE COLON suite
+    (16) while_stmt -> . WHILE test COLON suite
+    (17) while_stmt -> . WHILE test COLON suite ELSE COLON suite
+    (12) print -> . PRINT LPAREN small_stmt RPAREN SEMICOLON
+    (22) test -> . comparison OR test
+    (23) test -> . comparison AND test
+    (24) test -> . comparison
+    (13) flow_stmt -> . RETURN
+    (14) flow_stmt -> . BREAK
+    (15) flow_stmt -> . CONTINUE
+    (25) comparison -> . expr GT expr
+    (26) comparison -> . expr LT expr
+    (27) comparison -> . expr GTE expr
+    (28) comparison -> . expr LTE expr
+    (29) comparison -> . expr EQ expr
+    (30) comparison -> . expr NEQ expr
+    (31) comparison -> . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    RBRACK          shift and go to state 93
+    IF              shift and go to state 12
+    WHILE           shift and go to state 13
+    PRINT           shift and go to state 14
+    RETURN          shift and go to state 17
+    BREAK           shift and go to state 18
+    CONTINUE        shift and go to state 19
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    stmt                           shift and go to state 37
+    simple_stmt                    shift and go to state 4
+    compound_stmt                  shift and go to state 5
+    small_stmt                     shift and go to state 6
+    if_stmt                        shift and go to state 7
+    while_stmt                     shift and go to state 8
+    print                          shift and go to state 9
+    test                           shift and go to state 10
+    flow_stmt                      shift and go to state 11
+    comparison                     shift and go to state 16
+    expr                           shift and go to state 20
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 90
+
+    (17) while_stmt -> WHILE test COLON suite ELSE . COLON suite
+
+    COLON           shift and go to state 94
+
+
+state 91
+
+    (12) print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .
+
+    IF              reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    WHILE           reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    PRINT           reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    RETURN          reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    BREAK           reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    CONTINUE        reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    NAME            reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    PLUS            reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    MINUS           reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    LPAREN          reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    LSQBRACK        reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    TRUE            reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    FALSE           reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    NONE            reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    INT             reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    FLOAT           reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    STRING          reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    $end            reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+    RBRACK          reduce using rule 12 (print -> PRINT LPAREN small_stmt RPAREN SEMICOLON .)
+
+
+state 92
+
+    (19) if_stmt -> IF test COLON suite ELSE COLON . suite
+    (20) suite -> . simple_stmt
+    (21) suite -> . LBRACK stmt_list RBRACK
+    (9) simple_stmt -> . small_stmt SEMICOLON
+    (10) small_stmt -> . test
+    (11) small_stmt -> . flow_stmt
+    (22) test -> . comparison OR test
+    (23) test -> . comparison AND test
+    (24) test -> . comparison
+    (13) flow_stmt -> . RETURN
+    (14) flow_stmt -> . BREAK
+    (15) flow_stmt -> . CONTINUE
+    (25) comparison -> . expr GT expr
+    (26) comparison -> . expr LT expr
+    (27) comparison -> . expr GTE expr
+    (28) comparison -> . expr LTE expr
+    (29) comparison -> . expr EQ expr
+    (30) comparison -> . expr NEQ expr
+    (31) comparison -> . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    LBRACK          shift and go to state 84
+    RETURN          shift and go to state 17
+    BREAK           shift and go to state 18
+    CONTINUE        shift and go to state 19
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    test                           shift and go to state 10
+    suite                          shift and go to state 95
+    simple_stmt                    shift and go to state 83
+    small_stmt                     shift and go to state 6
+    flow_stmt                      shift and go to state 11
+    comparison                     shift and go to state 16
+    expr                           shift and go to state 20
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 93
+
+    (21) suite -> LBRACK stmt_list RBRACK .
+
+    ELSE            reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    IF              reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    WHILE           reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    PRINT           reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    RETURN          reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    BREAK           reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    CONTINUE        reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    NAME            reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    PLUS            reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    MINUS           reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    LPAREN          reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    LSQBRACK        reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    TRUE            reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    FALSE           reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    NONE            reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    INT             reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    FLOAT           reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    STRING          reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    $end            reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+    RBRACK          reduce using rule 21 (suite -> LBRACK stmt_list RBRACK .)
+
+
+state 94
+
+    (17) while_stmt -> WHILE test COLON suite ELSE COLON . suite
+    (20) suite -> . simple_stmt
+    (21) suite -> . LBRACK stmt_list RBRACK
+    (9) simple_stmt -> . small_stmt SEMICOLON
+    (10) small_stmt -> . test
+    (11) small_stmt -> . flow_stmt
+    (22) test -> . comparison OR test
+    (23) test -> . comparison AND test
+    (24) test -> . comparison
+    (13) flow_stmt -> . RETURN
+    (14) flow_stmt -> . BREAK
+    (15) flow_stmt -> . CONTINUE
+    (25) comparison -> . expr GT expr
+    (26) comparison -> . expr LT expr
+    (27) comparison -> . expr GTE expr
+    (28) comparison -> . expr LTE expr
+    (29) comparison -> . expr EQ expr
+    (30) comparison -> . expr NEQ expr
+    (31) comparison -> . expr
+    (32) expr -> . NAME ASSIGN expr
+    (33) expr -> . expr PLUS expr
+    (34) expr -> . expr MINUS expr
+    (35) expr -> . expr TIMES expr
+    (36) expr -> . expr DIVIDE expr
+    (37) expr -> . expr MOD expr
+    (38) expr -> . factor
+    (39) factor -> . PLUS factor
+    (40) factor -> . MINUS factor
+    (41) factor -> . atom_expr
+    (42) atom_expr -> . atom
+    (43) atom -> . LPAREN list_expr RPAREN
+    (44) atom -> . LSQBRACK list_expr RSQBRACK
+    (45) atom -> . name
+    (46) atom -> . number
+    (47) atom -> . string
+    (48) atom -> . TRUE
+    (49) atom -> . FALSE
+    (50) atom -> . NONE
+    (53) name -> . NAME
+    (54) number -> . INT
+    (55) number -> . FLOAT
+    (56) string -> . STRING
+
+    LBRACK          shift and go to state 84
+    RETURN          shift and go to state 17
+    BREAK           shift and go to state 18
+    CONTINUE        shift and go to state 19
+    NAME            shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    LPAREN          shift and go to state 15
+    LSQBRACK        shift and go to state 27
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+    NONE            shift and go to state 33
+    INT             shift and go to state 34
+    FLOAT           shift and go to state 35
+    STRING          shift and go to state 36
+
+    test                           shift and go to state 10
+    suite                          shift and go to state 96
+    simple_stmt                    shift and go to state 83
+    small_stmt                     shift and go to state 6
+    flow_stmt                      shift and go to state 11
+    comparison                     shift and go to state 16
+    expr                           shift and go to state 20
+    factor                         shift and go to state 24
+    atom_expr                      shift and go to state 25
+    atom                           shift and go to state 26
+    name                           shift and go to state 28
+    number                         shift and go to state 29
+    string                         shift and go to state 30
+
+state 95
+
+    (19) if_stmt -> IF test COLON suite ELSE COLON suite .
+
+    IF              reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    WHILE           reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    PRINT           reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    RETURN          reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    BREAK           reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    CONTINUE        reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    NAME            reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    PLUS            reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    MINUS           reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    LPAREN          reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    LSQBRACK        reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    TRUE            reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    FALSE           reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    NONE            reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    INT             reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    FLOAT           reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    STRING          reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    $end            reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+    RBRACK          reduce using rule 19 (if_stmt -> IF test COLON suite ELSE COLON suite .)
+
+
+state 96
+
+    (17) while_stmt -> WHILE test COLON suite ELSE COLON suite .
+
+    IF              reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    WHILE           reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    PRINT           reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    RETURN          reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    BREAK           reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    CONTINUE        reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    NAME            reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    PLUS            reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    MINUS           reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    LPAREN          reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    LSQBRACK        reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    TRUE            reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    FALSE           reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    NONE            reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    INT             reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    FLOAT           reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    STRING          reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    $end            reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+    RBRACK          reduce using rule 17 (while_stmt -> WHILE test COLON suite ELSE COLON suite .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PLUS in state 79 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 79 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 79 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 79 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 79 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 80 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 80 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 80 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 80 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 80 resolved as shift
