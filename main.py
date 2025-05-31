@@ -9,7 +9,7 @@ from cplusplus.parser import run_cpp_tests
 from javascript.parser import run_js_tests
 from pascal.parser import run_pascal_tests
 from python.main import run_python_tests
-from tsql.parser import run_sql_tests
+from sql.parser import run_sql_tests
 
 class Application(tk.Tk):
     def __init__(self):
